@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="af8a0da1-c6cb-4619-8f4f-60930ec83172" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/.idea/difi.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/.idea/runConfigurations/Debug_Application.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/css/2.4be38407.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/css/2.4be38407.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/css/main.a617e044.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/css/main.a617e044.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/js/2.08c0af9d.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/js/2.08c0af9d.chunk.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/js/2.08c0af9d.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/js/3.76e5aae5.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/js/3.76e5aae5.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/js/main.25192658.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/js/main.25192658.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/js/runtime-main.d3a79597.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/js/runtime-main.d3a79597.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/build/static/media/logo_df.296011cb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/ModalForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/Test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/components/NBComponent.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/components/NTComponent.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/logo_df.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/other/constant.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/react-app-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/reportWebVitals.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/setupTests.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/src/util/agent.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ic-blockchain/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NBComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NBComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/other/constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/other/constant.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="20AqZ8e0FjgCZlRdXjFgDOgHUX2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1635497797015</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635497797015</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

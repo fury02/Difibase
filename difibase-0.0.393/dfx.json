@@ -1,0 +1,53 @@
+{
+  "canisters": {
+    "dbs": {
+      "main": "src/dbs/service.mo",
+      "type": "motoko"
+    },
+    "instance-manager":{
+      "main": "src/dbs/service-manager/instance-manager.mo",
+      "type": "motoko"
+    },
+    "token":{
+      "main": "src/dbs/token/dfb/token-dfb.mo",
+      "type": "motoko"
+    },
+    "token-test":{
+      "main": "src/dbs/token/dfb/token-dfb-test.mo",
+      "type": "motoko"
+    },
+    "wasm-actor":{
+      "main": "src/dbs/service-manager/example/wasm-manager.mo",
+      "type": "motoko"
+    }
+  },
+  "defaults": {
+    "replica": {
+      "subnet_type": "system"
+    },
+    "build": {
+      "args": "",
+      "packtool": "vessel-linux64 sources"
+    }
+  },
+  "dfx": "0.10.0",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "ic_localhost": {
+    "local": {
+      "bind": "http://127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "ic_network": {
+    "ic": {
+      "bind": "https://boundary.ic0.app",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
