@@ -1,0 +1,226 @@
+type WalletReceiveError = 
+ variant {
+   InvalidCycleConfig;
+   MaxCyclesReached;
+   NoCyclesAdded;
+   TokenAccessorError: variant {
+                         MintNotAuthorized;
+                         TokenNotSet;
+                       };
+ };
+type TxError = 
+ variant {
+   AmountTooSmall;
+   BlockUsed;
+   ErrorOperationStyle;
+   ErrorTo;
+   InsufficientAllowance;
+   InsufficientBalance;
+   LedgerTrap;
+   Other: text;
+   Unauthorized;
+ };
+type TransferError__1 = 
+ variant {
+   BadFee: record {expected_fee: Token;};
+   InsufficientFunds: record {balance: Token;};
+   TxCreatedInFuture;
+   TxDuplicate: record {duplicate_of: BlockIndex;};
+   TxTooOld: record {allowed_window_nanos: nat64;};
+ };
+type TransferError = 
+ variant {
+   CannotNotify: AccountIdentifier;
+   InsufficientBalance;
+   InvalidToken: TokenIdentifier;
+   Other: text;
+   Rejected;
+   Unauthorized: AccountIdentifier;
+ };
+type Token__1 = 
+ record {
+   canister: principal;
+   identifier: opt variant {
+                     "nat": nat;
+                     "text": text;
+                   };
+   standard: TokenStandard;
+ };
+type TokenStandard = 
+ variant {
+   DIP20;
+   DIP721;
+   EXT;
+   LEDGER;
+   NFT_ORIGYN;
+ };
+type TokenIdentifier = text;
+type Token = record {e8s: nat64;};
+type Result_3 = 
+ variant {
+   err: ConfigureError;
+   ok;
+ };
+type Result_2 = 
+ variant {
+   err: CyclesTransferError;
+   ok: CyclesTransferSuccess;
+ };
+type Result_1 = 
+ variant {
+   err: MintError;
+   ok: opt nat;
+ };
+type Result = 
+ variant {
+   err: WalletReceiveError;
+   ok: MintRecord;
+ };
+type PoweringParameters = 
+ record {
+   balance_target: nat;
+   balance_threshold: nat;
+   last_execution: DistributeCyclesInfo;
+   pull_authorized: bool;
+ };
+type MintRecord = 
+ record {
+   amount: nat;
+   date: int;
+   index: nat;
+   result: Result_1;
+   to: principal;
+   token: Token__1;
+ };
+type MintError = 
+ variant {
+   ComputeAccountIdFailed;
+   InterfaceError:
+    variant {
+      DIP20: TxError;
+      EXT: TransferError;
+      LEDGER: TransferError__1;
+    };
+   NftNotSupported;
+   TokenIdInvalidType;
+   TokenIdMissing;
+ };
+type ExchangeLevel = 
+ record {
+   rate_per_t: float64;
+   threshold: nat;
+ };
+type DistributeCyclesState = 
+ variant {
+   AlreadyAboveThreshold;
+   Failed: CyclesTransferError;
+   Pending;
+   Refilled;
+   Trapped;
+ };
+type DistributeCyclesInfo = 
+ record {
+   state: DistributeCyclesState;
+   time: int;
+ };
+type CyclesTransferSuccess = 
+ variant {
+   AlreadyAboveThreshold;
+   Refilled;
+ };
+type CyclesTransferError = 
+ variant {
+   CallerRefundedAll;
+   CanisterNotAllowed;
+   InsufficientCycles;
+   PullNotAuthorized;
+ };
+type CyclesSentRecord = 
+ record {
+   amount: nat;
+   date: int;
+   method: CyclesDistributionMethod;
+   to: principal;
+ };
+type CyclesReceivedRecord = 
+ record {
+   cycle_amount: nat;
+   date: int;
+   from: principal;
+   mint_index: nat;
+ };
+type CyclesProviderCommand = 
+ variant {
+   AddAllowList:
+    record {
+      balance_target: nat;
+      balance_threshold: nat;
+      canister: principal;
+      pull_authorized: bool;
+    };
+   RemoveAllowList: record {canister: principal;};
+   SetAdmin: record {canister: principal;};
+   SetCycleExchangeConfig: vec ExchangeLevel;
+   SetMinimumBalance: record {minimum_balance: nat;};
+ };
+type CyclesProvider = 
+ service {
+   computeTokensInExchange: (nat) -> (nat) query;
+   configure: (CyclesProviderCommand) -> (Result_3);
+   cyclesBalance: () -> (nat) query;
+   distributeCycles: () -> ();
+   getAdmin: () -> (principal) query;
+   getAllowList: () -> (vec record {
+                              principal;
+                              PoweringParameters;
+                            }) query;
+   getConfigureCommandRegister: () -> (vec ConfigureCommandRecord) query;
+   getCycleExchangeConfig: () -> (vec ExchangeLevel) query;
+   getCyclesBalanceRegister: () -> (vec CyclesBalanceRecord) query;
+   getCyclesProfile: () -> (vec CyclesProfile);
+   getCyclesReceivedRegister: () -> (vec CyclesReceivedRecord) query;
+   getCyclesSentRegister: () -> (vec CyclesSentRecord) query;
+   getMinimumBalance: () -> (nat) query;
+   getTokenAccessor: () -> (principal) query;
+   requestCycles: () -> (Result_2);
+   walletReceive: () -> (Result);
+ };
+type CyclesProfile = 
+ record {
+   balance_cycles: nat;
+   powering_parameters: PoweringParameters;
+   "principal": principal;
+ };
+type CyclesDistributionMethod = 
+ variant {
+   DistributeCycles;
+   RequestCycles;
+ };
+type CyclesBalanceRecord = 
+ record {
+   balance: nat;
+   date: int;
+ };
+type CreateCyclesProviderArgs = 
+ record {
+   admin: principal;
+   cycles_exchange_config: vec ExchangeLevel;
+   minimum_cycles_balance: nat;
+   token_accessor: principal;
+ };
+type ConfigureError = 
+ variant {
+   InvalidBalanceArguments;
+   InvalidCycleConfig;
+   NotAllowed;
+   NotInAllowList;
+ };
+type ConfigureCommandRecord = 
+ record {
+   admin: principal;
+   command: CyclesProviderCommand;
+   date: int;
+ };
+type BlockIndex = nat64;
+type AccountIdentifier = text;
+service : (CreateCyclesProviderArgs) -> CyclesProvider

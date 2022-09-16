@@ -1,0 +1,24 @@
+yarn cache clean
+yarn add '@react-frontend-developer/buffers'
+yarn install
+
+
+
+install web ic
+
+action:
+
+check .env canister 7wwjw-5iaaa-aaaan-qbguq-cai (REACT_APP_KIT_CANISTER_ID)
+or  set new canister for build webpack
+
+1)-yarn install
+2)-yarn build
+3)Next copy files build in src/dist
+4)-dfx start
+5)-dfx deploy
+6)Next copy files .dfx/local/canisters/* in .dfx/ic/canisters/*
+download frontend
+7)
+-dfx canister --network=ic install front --mode=reinstall
+or
+dfx canister --network=ic install front --mode=upgrade

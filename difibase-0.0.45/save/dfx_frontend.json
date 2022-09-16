@@ -1,0 +1,82 @@
+{
+  "canisters": {
+    "admin":{
+      "main": "src/dbs/hubs/main/admin.mo",
+      "type": "motoko"
+    },
+    "wasm_storage":{
+      "main": "src/dbs/wasm/wasm-storage.mo",
+      "type": "motoko"
+    },
+    "token":{
+      "main": "src/dbs/token/dfb/token-dfb.mo",
+      "type": "motoko"
+    },
+    "token_test":{
+      "main": "src/dbs/token/dfb/token-dfb-test.mo",
+      "type": "motoko"
+    },
+    "db_easy": {
+      "main": "src/dbs/databases/version_easy/dbeasy.mo",
+      "type": "motoko"
+    },
+    "db_files": {
+      "main": "src/dbs/databases/version_files/db-files.mo",
+      "type": "motoko"
+    },
+    "db_old": {
+      "main": "src/dbs/databases/version_many_buckets/service.mo",
+      "type": "motoko"
+    },
+    "test-db-easy": {
+      "main": "src/dbs/test/test-dbeasy.mo",
+      "type": "motoko"
+    },
+    "cluster":{
+      "main": "src/dbs/hubs/cluster.mo",
+      "type": "motoko"
+    },
+    "front": {
+      "frontend": {
+        "entrypoint": "public/index.html"
+      },
+      "source": ["src/assets", "src/dist"],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "replica": {
+      "subnet_type": "system"
+    },
+    "build": {
+      "args": "--compacting-gc",
+      "packtool": "vessel-linux64 sources"
+    }
+  },
+  "dfx": "0.12.1",
+  "networks": {
+    "staging": {
+      "providers": [
+        "https://ic0.app"
+      ],
+      "type": "persistent"
+    },
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "ic_localhost": {
+    "local": {
+      "bind": "http://127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "ic_network": {
+    "ic": {
+      "bind": "https://boundary.ic0.app",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}

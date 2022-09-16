@@ -1,0 +1,102 @@
+{
+  "name": "dbs",
+  "version": "0.3.2",
+  "private": true,
+  "dependencies": {
+    "@dfinity/agent": "0.14.0",
+    "@dfinity/auth-client": "0.14.0",
+    "@dfinity/authentication": "0.14.0",
+    "@dfinity/candid": "0.14.0",
+    "@dfinity/cmc": "^0.0.2",
+    "@dfinity/identity": "0.14.0",
+    "@dfinity/identity-ledgerhq": "0.14.0",
+    "@dfinity/principal": "0.14.0",
+    "@dfinity/utils": "^0.0.5-next-2022-10-31.1",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@react-frontend-developer/buffers": "^2.0.1",
+    "@react-native-community/async-storage": "^1.12.1",
+    "@reduxjs/toolkit": "^1.8.6",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.21",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/react-redux": "^7.1.24",
+    "bootstrap": "^5.2.2",
+    "buffer-crc32": "^0.2.13",
+    "crc": "^4.1.0",
+    "cross-fetch": "^3.1.5",
+    "crypto-js": "^4.1.1",
+    "file-loader": "^6.2.0",
+    "formik": "^2.2.9",
+    "formik-material-ui": "3.0.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "11.3.1",
+    "react-hook-form": "^7.27.1",
+    "react-redux": "^8.0.4",
+    "react-router": "^6.2.2",
+    "react-router-bootstrap": "^0.26.0",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "^5.0.1",
+    "redux-persist": "^6.0.0",
+    "sha3": "^2.1.4",
+    "tsconfig-paths": "^3.13.0",
+    "typescript": "^4.6.2",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.21",
+    "@types/react-dom": "^18.0.0",
+    "@types/react-router-bootstrap": "^0.24.5",
+    "@types/react-router-dom": "^5.3.3",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.2",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.27.0",
+    "html-webpack-plugin": "^5.5.0",
+    "ic-stoic-identity": "^2.0.0",
+    "postcss-loader": "^7.0.2",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.6",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.6.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}

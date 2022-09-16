@@ -1,0 +1,93 @@
+type definite_canister_settings = 
+ record {
+   compute_allocation: nat;
+   controllers: vec principal;
+   freezing_threshold: nat;
+   memory_allocation: nat;
+ };
+type canister_status_type = 
+ record {
+   cycles: nat;
+   memory_size: nat;
+   module_hash: opt vec nat8;
+   settings: definite_canister_settings;
+   status: variant {
+             running;
+             stopped;
+             stopping;
+           };
+ };
+type TxReceipt = 
+ variant {
+   Err:
+    variant {
+      AmountTooSmall;
+      BlockUsed;
+      ErrorOperationStyle;
+      ErrorTo;
+      InsufficientAllowance;
+      InsufficientBalance;
+      LedgerTrap;
+      Other: text;
+      Unauthorized;
+    };
+   Ok: nat;
+ };
+type TokenInfo = 
+ record {
+   cycles: nat;
+   deployTime: Time;
+   feeTo: principal;
+   historySize: nat;
+   holderNumber: nat;
+   metadata: Metadata;
+ };
+type Token = 
+ service {
+   add_service_second_controller: (text) -> ();
+   allowance: (principal, principal) -> (nat) query;
+   approve: (principal, nat) -> (TxReceipt);
+   balanceOf: (principal) -> (nat) query;
+   burn: (nat) -> (TxReceipt);
+   clear_service_second_controller: (text) -> ();
+   decimals: () -> (nat8) query;
+   getAllowanceSize: () -> (nat) query;
+   getBalanceOf: (text) -> (nat) query;
+   getHolders: (nat, nat) -> (vec record {
+                                    principal;
+                                    nat;
+                                  }) query;
+   getMetadata: () -> (Metadata) query;
+   getTokenFee: () -> (nat) query;
+   getTokenInfo: () -> (TokenInfo) query;
+   getUserApprovals: (principal) -> (vec record {
+                                           principal;
+                                           nat;
+                                         }) query;
+   get_canister_status_info: () -> (canister_status_type);
+   historySize: () -> (nat) query;
+   logo: () -> (text) query;
+   mint: (principal, nat) -> (TxReceipt);
+   name: () -> (text) query;
+   setFee: (nat) -> () oneway;
+   setFeeTo: (principal) -> () oneway;
+   setLogo: (text) -> () oneway;
+   setName: (text) -> () oneway;
+   setOwner: (principal) -> () oneway;
+   symbol: () -> (text) query;
+   totalSupply: () -> (nat) query;
+   transfer: (principal, nat) -> (TxReceipt);
+   transferFrom: (principal, principal, nat) -> (TxReceipt);
+ };
+type Time = int;
+type Metadata = 
+ record {
+   decimals: nat8;
+   fee: nat;
+   logo: text;
+   name: text;
+   owner: principal;
+   symbol: text;
+   totalSupply: nat;
+ };
+service : () -> Token

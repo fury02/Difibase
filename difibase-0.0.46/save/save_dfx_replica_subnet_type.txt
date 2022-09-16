@@ -1,0 +1,43 @@
+
+system!!!!!!!!!!!!!!!!!!
+
+{
+  "defaults": {
+    "replica": {
+      "subnet_type": "system"
+    },
+    "build": {
+      "args": "",
+      "packtool": "vessel-linux64 sources"
+    }
+  }
+}
+
+application!!!!!!
+
+{
+  "defaults": {
+    "replica": {
+      "subnet_type": "application"
+    },
+    "build": {
+      "args": "",
+      "packtool": "vessel-linux64 sources"
+    }
+  }
+}
+
+verifiedapplication!!!!!!!!!!!!!!!!!!!!!!!
+
+{
+  "defaults": {
+    "replica": {
+      "subnet_type": "verifiedapplication"
+    },
+    "build": {
+      "args": "",
+      "packtool": "vessel-linux64 sources"
+    }
+  }
+}
+

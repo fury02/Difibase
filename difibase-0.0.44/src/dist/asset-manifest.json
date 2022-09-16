@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ff8da22f.css",
+    "main.js": "/static/js/main.583b9365.js",
+    "static/js/787.b5589acf.chunk.js": "/static/js/787.b5589acf.chunk.js",
+    "static/media/logo_5.png": "/static/media/logo_5.a89dab3133fe3b23aa86.png",
+    "static/media/img_s_d.png": "/static/media/img_s_d.d992ca67a6efa9fcb201.png",
+    "static/media/img_w.png": "/static/media/img_w.a0d8ec17422b8db0afa5.png",
+    "static/media/img_w_n.png": "/static/media/img_w_n.dbd353cf7cbe2d960789.png",
+    "static/media/img_y.png": "/static/media/img_y.a10960aca738ea372453.png",
+    "static/media/img_y_a.png": "/static/media/img_y_a.cc187b8466fe6687c614.png",
+    "static/media/img_d_u.png": "/static/media/img_d_u.99bc8d2e0c9b4a8a533c.png",
+    "static/media/img_dt.png": "/static/media/img_dt.51923a6511a918b5820f.png",
+    "static/media/img_t.png": "/static/media/img_t.78b9b6d4438198ce8a3f.png",
+    "static/media/img_c.png": "/static/media/img_c.f5bf5cac44770a162efd.png",
+    "static/media/ic-badge-powered-by_slim-transparent-white-text.svg": "/static/media/ic-badge-powered-by_slim-transparent-white-text.82b23e6fb9d4f518e4935b27b836273f.svg",
+    "static/media/img_e.png": "/static/media/img_e.35241755dff3b6f906b1.png",
+    "index.html": "/index.html",
+    "main.ff8da22f.css.map": "/static/css/main.ff8da22f.css.map",
+    "main.583b9365.js.map": "/static/js/main.583b9365.js.map",
+    "787.b5589acf.chunk.js.map": "/static/js/787.b5589acf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff8da22f.css",
+    "static/js/main.583b9365.js"
+  ]
+}

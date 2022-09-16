@@ -1,0 +1,2 @@
+dfx canister --network=ic install --mode=upgrade web_manual_frontend
+dfx canister --network=ic install --mode=reinstall web_manual_frontend

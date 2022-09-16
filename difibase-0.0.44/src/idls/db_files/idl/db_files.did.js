@@ -1,0 +1,155 @@
+export const idlFactory = ({ IDL }) => {
+  const SubAccount = IDL.Vec(IDL.Nat8);
+  const AccountIdentifier = IDL.Vec(IDL.Nat8);
+  const Hex = IDL.Text;
+  const PrincipalAccounting = IDL.Record({
+    'principal' : IDL.Principal,
+    'principal_value' : IDL.Text,
+    'subaccount' : SubAccount,
+    'account_identifier' : AccountIdentifier,
+    'address' : Hex,
+  });
+  const Tokens = IDL.Record({ 'e8s' : IDL.Nat64 });
+  const CanisterAccounting = IDL.Record({
+    'principal' : IDL.Principal,
+    'principal_value' : IDL.Text,
+    'subaccount' : SubAccount,
+    'cycles' : IDL.Opt(IDL.Nat),
+    'tokens_balance' : Tokens,
+    'account_identifier' : AccountIdentifier,
+    'address' : Hex,
+  });
+  const Wasm = IDL.Vec(IDL.Nat8);
+  const UUID = IDL.Vec(IDL.Nat8);
+  const GUID = IDL.Text;
+  const Cycles = IDL.Nat;
+  const FileUploadError = IDL.Variant({
+    'abort_upload' : IDL.Null,
+    'crc_invalid' : IDL.Null,
+    'unknown_error' : IDL.Null,
+  });
+  const Result_1 = IDL.Variant({
+    'ok' : IDL.Tuple(UUID, IDL.Bool),
+    'err' : FileUploadError,
+  });
+  const Result = IDL.Variant({ 'ok' : UUID, 'err' : FileUploadError });
+  const DBFILES = IDL.Service({
+    'accounting' : IDL.Func([IDL.Text], [PrincipalAccounting], []),
+    'canister_accounting' : IDL.Func([], [CanisterAccounting], []),
+    'clean_canister' : IDL.Func([IDL.Principal, Wasm], [IDL.Bool], []),
+    'clear_column' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
+    'clear_table' : IDL.Func([IDL.Text], [IDL.Bool], []),
+    'create_blob_json' : IDL.Func(
+        [IDL.Nat, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Nat],
+        [IDL.Vec(IDL.Nat8)],
+        [],
+      ),
+    'cycles_available' : IDL.Func([], [IDL.Nat], []),
+    'cycles_balance' : IDL.Func([], [IDL.Nat], []),
+    'delete_canister' : IDL.Func([IDL.Principal], [IDL.Bool], []),
+    'delete_column' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
+    'delete_file' : IDL.Func([UUID], [IDL.Bool], []),
+    'delete_table' : IDL.Func([IDL.Text], [IDL.Bool], []),
+    'delete_table_cell_value' : IDL.Func(
+        [IDL.Text, IDL.Text, IDL.Text],
+        [IDL.Bool],
+        [],
+      ),
+    'delete_table_entity' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
+    'download_chunks_by_guid' : IDL.Func(
+        [GUID, IDL.Nat],
+        [IDL.Opt(IDL.Vec(IDL.Nat8))],
+        [],
+      ),
+    'download_chunks_by_uuid' : IDL.Func(
+        [UUID, IDL.Nat],
+        [IDL.Opt(IDL.Vec(IDL.Nat8))],
+        [],
+      ),
+    'find_table_cell' : IDL.Func(
+        [IDL.Text, IDL.Text, IDL.Text],
+        [IDL.Text],
+        [],
+      ),
+    'find_table_value' : IDL.Func([IDL.Text, IDL.Text], [IDL.Text], []),
+    'get_collection_table_entityes' : IDL.Func(
+        [IDL.Text],
+        [IDL.Vec(IDL.Text)],
+        [],
+      ),
+    'get_collection_table_keys' : IDL.Func([IDL.Text], [IDL.Vec(IDL.Text)], []),
+    'get_collection_tables' : IDL.Func([], [IDL.Vec(IDL.Text)], []),
+    'get_file_info_by_guid' : IDL.Func(
+        [GUID],
+        [IDL.Nat, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Nat],
+        [],
+      ),
+    'get_file_info_by_uuid' : IDL.Func(
+        [UUID],
+        [IDL.Nat, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Nat],
+        [],
+      ),
+    'get_rts_memory_size' : IDL.Func([], [IDL.Nat], []),
+    'get_table_entityes' : IDL.Func([IDL.Text], [IDL.Text], []),
+    'get_table_entityes_json' : IDL.Func([IDL.Text], [IDL.Text], []),
+    'get_table_keys' : IDL.Func([IDL.Text], [IDL.Text], []),
+    'get_table_keys_json' : IDL.Func([IDL.Text], [IDL.Text], []),
+    'get_tables' : IDL.Func([], [IDL.Text], []),
+    'get_tables_array' : IDL.Func([], [IDL.Vec(IDL.Text)], []),
+    'get_tables_json' : IDL.Func([], [IDL.Text], []),
+    'get_version' : IDL.Func([], [IDL.Text], ['query']),
+    'guid_to_uuid' : IDL.Func([GUID], [UUID], []),
+    'install_wasm' : IDL.Func([IDL.Principal, Wasm], [IDL.Bool], []),
+    'key_contains' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
+    'minting_cycles' : IDL.Func([IDL.Nat], [Cycles], []),
+    'reinstall_wasm' : IDL.Func([IDL.Principal, Wasm], [IDL.Bool], []),
+    'replace_table_value' : IDL.Func(
+        [IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+        [IDL.Opt(IDL.Text)],
+        [],
+      ),
+    'replace_value' : IDL.Func(
+        [IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+        [IDL.Opt(IDL.Text)],
+        [],
+      ),
+    'set_blob_file_info' : IDL.Func(
+        [IDL.Vec(IDL.Nat8), IDL.Text, IDL.Text],
+        [UUID, GUID],
+        [],
+      ),
+    'set_file_info' : IDL.Func(
+        [IDL.Nat, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Nat],
+        [UUID, GUID],
+        [],
+      ),
+    'start_canister' : IDL.Func([IDL.Principal], [IDL.Bool], []),
+    'stop_canister' : IDL.Func([IDL.Principal], [IDL.Bool], []),
+    'table_contains' : IDL.Func([IDL.Text], [IDL.Bool], []),
+    'uninstall_wasm' : IDL.Func([IDL.Principal], [IDL.Bool], []),
+    'upgrade_wasm' : IDL.Func([IDL.Principal, Wasm], [IDL.Bool], []),
+    'upload_chunks' : IDL.Func(
+        [IDL.Vec(IDL.Nat8), UUID, IDL.Nat, IDL.Nat],
+        [UUID],
+        [],
+      ),
+    'upload_chunks_crc' : IDL.Func(
+        [IDL.Vec(IDL.Nat8), UUID, IDL.Nat, IDL.Nat, IDL.Nat],
+        [UUID, IDL.Bool],
+        [],
+      ),
+    'upload_chunks_crc_result' : IDL.Func(
+        [IDL.Vec(IDL.Nat8), UUID, IDL.Nat, IDL.Nat, IDL.Nat],
+        [Result_1],
+        [],
+      ),
+    'upload_chunks_result' : IDL.Func(
+        [IDL.Vec(IDL.Nat8), UUID, IDL.Nat, IDL.Nat],
+        [Result],
+        [],
+      ),
+    'uuid_to_guid' : IDL.Func([UUID], [GUID], []),
+  });
+  return DBFILES;
+};
+export const init = ({ IDL }) => { return []; };

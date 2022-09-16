@@ -1,0 +1,162 @@
+type definite_canister_settings = 
+ record {
+   compute_allocation: nat;
+   controllers: vec principal;
+   freezing_threshold: nat;
+   memory_allocation: nat;
+ };
+type Wasm__1 = vec nat8;
+type WasmStorage = 
+ service {
+   add_wasm: (text, text, nat, Wasm, vec nat8, text, TypeHash) -> ();
+   caller: () -> (principal);
+   canister_accounting: () -> (CanisterAccounting);
+   cycles_available: () -> (nat) query;
+   cycles_balance: () -> (nat) query;
+   deposit: () -> ();
+   get_canister_status: (principal) -> (CanisterStatus);
+   get_count_files: () -> (nat);
+   get_rts_memory_size: () -> (nat);
+   get_version: () -> (text) query;
+   install_wasm: (nat, text, text, text, nat, vec nat8, text, TypeHash) ->
+    (Wasm);
+   last_wasm_result: (text) -> (Result_1);
+   minting_cycles: (nat) -> (Cycles);
+   objects: () -> (vec CombinedWasmInfo);
+   read_wasm: (text, nat) -> (Wasm);
+   read_wasm_result: (text, nat) -> (Result);
+   remove_wasm: (text, text, nat) -> (opt WasmObject);
+   transfer_icp: (Hex, nat) -> (TransferResultExpanded);
+   update_wasm: (text, text, nat, UUID, GUID, Wasm, vec nat8, text,
+    TypeHash) -> (opt WasmObject);
+   upload_progress: (nat, text, vec nat8) -> ();
+   withdraw: (nat) -> ();
+ };
+type WasmObject = 
+ record {
+   file_hash: FileHash;
+   updated: bool;
+   wasm: Wasm__1;
+ };
+type WasmDelivered = 
+ record {
+   name: text;
+   version: nat;
+   wasm: Wasm__1;
+ };
+type Wasm = vec nat8;
+type UUID__1 = vec nat8;
+type UUID = vec nat8;
+type TypeHash__1 = 
+ variant {
+   kessak;
+   none;
+   sha224;
+   sha256;
+   sha384;
+   sha512;
+   unknown;
+ };
+type TypeHash = 
+ variant {
+   kessak;
+   none;
+   sha224;
+   sha256;
+   sha384;
+   sha512;
+   unknown;
+ };
+type TransferResultExpanded = 
+ record {
+   amount: Tokens;
+   created_at_time: TimeStamp;
+   transfer_result: TransferResult;
+ };
+type TransferResult = 
+ variant {
+   Err: TransferError;
+   Ok: BlockIndex;
+ };
+type TransferError = 
+ variant {
+   BadFee: record {expected_fee: Tokens;};
+   InsufficientFunds: record {balance: Tokens;};
+   TxCreatedInFuture;
+   TxDuplicate: record {duplicate_of: BlockIndex;};
+   TxTooOld: record {allowed_window_nanos: nat64;};
+ };
+type Tokens = record {e8s: nat64;};
+type TimeStamp = record {timestamp_nanos: nat64;};
+type SubAccount = vec nat8;
+type Result_1 = 
+ variant {
+   err: DescriptionError;
+   ok: WasmDelivered;
+ };
+type Result = 
+ variant {
+   err: DescriptionError;
+   ok: Wasm;
+ };
+type Hex = text;
+type GUID__1 = text;
+type GUID = text;
+type FileHash = 
+ record {
+   text_hash: text;
+   type_hash: TypeHash__1;
+   value: vec nat8;
+ };
+type DescriptionError = 
+ variant {
+   abort_canister_create;
+   abort_canister_deploy;
+   canister_create_error_not_enough_funds;
+   canister_install_wasm_error;
+   invalid_caller;
+   minting_cycles_error;
+   not_include_wasm;
+   reject_install_wasm;
+   unknown_error;
+   unreliable_operation;
+ };
+type Cycles = nat;
+type CombinedWasmInfo = 
+ record {
+   description: text;
+   guid: GUID__1;
+   name: text;
+   text_hash: text;
+   type_hash: TypeHash__1;
+   updated: bool;
+   uuid: UUID__1;
+   value_hash: vec nat8;
+   version: nat;
+ };
+type CanisterStatus = 
+ record {
+   cycles: nat;
+   freezing_threshold: nat;
+   memory_size: nat;
+   module_hash: opt blob;
+   settings: definite_canister_settings;
+   status: variant {
+             running;
+             stopped;
+             stopping;
+           };
+ };
+type CanisterAccounting = 
+ record {
+   account_identifier: AccountIdentifier;
+   address: Hex;
+   cycles: opt nat;
+   "principal": principal;
+   principal_value: text;
+   subaccount: SubAccount;
+   tokens_balance: Tokens;
+ };
+type BlockIndex = nat64;
+type AccountIdentifier = vec nat8;
+service : () -> WasmStorage

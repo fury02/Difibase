@@ -1,0 +1,353 @@
+type VoteError = 
+ variant {
+   AlreadyVoted;
+   EmptyBalance;
+   ProposalNotFound;
+   ProposalNotOpen;
+   TokenInterfaceError: BalanceError;
+ };
+type VoteArgs = 
+ record {
+   proposal_id: nat;
+   vote: Vote;
+ };
+type Vote = 
+ variant {
+   No;
+   Yes;
+ };
+type UpdateSystemParamsPayload = 
+ record {
+   proposal_submission_deposit: opt nat;
+   proposal_vote_reward: opt nat;
+   proposal_vote_threshold: opt nat;
+   token_accessor: opt principal;
+ };
+type TxError = 
+ variant {
+   AmountTooSmall;
+   BlockUsed;
+   ErrorOperationStyle;
+   ErrorTo;
+   InsufficientAllowance;
+   InsufficientBalance;
+   LedgerTrap;
+   Other: text;
+   Unauthorized;
+ };
+type TransferError__2 = 
+ variant {
+   ComputeAccountIdFailed;
+   InterfaceError:
+    variant {
+      DIP20: TxError;
+      DIP721: NftError;
+      EXT: TransferError;
+      LEDGER: TransferError__1;
+    };
+   TokenIdInvalidType;
+   TokenIdMissing;
+ };
+type TransferError__1 = 
+ variant {
+   BadFee: record {expected_fee: Token__1;};
+   InsufficientFunds: record {balance: Token__1;};
+   TxCreatedInFuture;
+   TxDuplicate: record {duplicate_of: BlockIndex;};
+   TxTooOld: record {allowed_window_nanos: nat64;};
+ };
+type TransferError = 
+ variant {
+   CannotNotify: AccountIdentifier;
+   InsufficientBalance;
+   InvalidToken: TokenIdentifier;
+   Other: text;
+   Rejected;
+   Unauthorized: AccountIdentifier;
+ };
+type Token__1 = record {e8s: nat64;};
+type TokenStandard = 
+ variant {
+   DIP20;
+   DIP721;
+   EXT;
+   LEDGER;
+   NFT_ORIGYN;
+ };
+type TokenLockState = 
+ variant {
+   Charged: record {transaction_id: opt nat;};
+   Locked: variant {
+             ChargeError: ChargeError;
+             RefundError: RefundError;
+             Still;
+           };
+   Refunded: record {transaction_id: opt nat;};
+ };
+type TokenLock = 
+ record {
+   amount: nat;
+   index: nat;
+   state: TokenLockState;
+   token: Token;
+   transaction_id: opt nat;
+   user: principal;
+ };
+type TokenIdentifier = text;
+type Token = 
+ record {
+   canister: principal;
+   identifier: opt variant {
+                     "nat": nat;
+                     "text": text;
+                   };
+   standard: TokenStandard;
+ };
+type SystemParams = 
+ record {
+   proposal_submission_deposit: nat;
+   proposal_vote_reward: nat;
+   proposal_vote_threshold: nat;
+   token_accessor: principal;
+ };
+type SubmitProposalError = 
+ variant {
+   TokenLockerError: LockError;
+   TokenNotSet;
+ };
+type Result_5 = 
+ variant {
+   err: AuthorizationError;
+   ok: vec TokenLock;
+ };
+type Result_4 = 
+ variant {
+   err: DistributeBalanceError;
+   ok;
+ };
+type Result_3 = 
+ variant {
+   err: GetLockTransactionArgsError;
+   ok: LockTransactionArgs;
+ };
+type Result_2 = 
+ variant {
+   err: SubmitProposalError;
+   ok: nat;
+ };
+type Result_1 = 
+ variant {
+   err: AuthorizationError;
+   ok;
+ };
+type Result = 
+ variant {
+   err: VoteError;
+   ok: ProposalState;
+ };
+type RefundError = 
+ variant {
+   AlreadyCharged;
+   AlreadyRefunded;
+   ComputeAccountIdFailed;
+   InterfaceError:
+    variant {
+      DIP20: TxError;
+      EXT: TransferError;
+      LEDGER: TransferError__1;
+    };
+   LockNotFound;
+   NftNotSupported;
+   TokenIdInvalidType;
+   TokenIdMissing;
+ };
+type ProposalState = 
+ variant {
+   Accepted: record {state: ProposalAcceptedState;};
+   Open;
+   Rejected;
+ };
+type ProposalPayload = 
+ record {
+   canister_id: principal;
+   message: blob;
+   method: text;
+ };
+type ProposalAcceptedState = 
+ variant {
+   Failed: ExecuteProposalError;
+   Pending;
+   Succeeded;
+ };
+type Proposal = 
+ record {
+   id: nat;
+   lock_id: nat;
+   payload: ProposalPayload;
+   proposer: principal;
+   state: ProposalState;
+   timestamp: int;
+   token: Token;
+   voters: List;
+   votes_no: nat;
+   votes_yes: nat;
+ };
+type NftError = 
+ variant {
+   ExistedNFT;
+   OperatorNotFound;
+   Other: text;
+   OwnerNotFound;
+   SelfApprove;
+   SelfTransfer;
+   TokenNotFound;
+   TxNotFound;
+   UnauthorizedOperator;
+   UnauthorizedOwner;
+ };
+type MintPayload = 
+ record {
+   amount: nat;
+   to: principal;
+ };
+type LockedTokens = 
+ record {
+   amount: nat;
+   locks: vec TokenLock;
+ };
+type LockTransactionArgs__1 = 
+ variant {
+   DIP20: Dip20ApproveArgs;
+   EXT: ExtTransferArgs;
+   LEDGER: LedgerTransferArgs;
+ };
+type LockTransactionArgs = 
+ record {
+   args: LockTransactionArgs__1;
+   token: Token;
+ };
+type LockError = 
+ variant {
+   ComputeAccountIdFailed;
+   InsufficientBalance;
+   InterfaceError: variant {
+                     DIP20: TxError;
+                     EXT: CommonError;
+                   };
+   NftNotSupported;
+   TokenIdInvalidType;
+   TokenIdMissing;
+ };
+type List = 
+ opt record {
+       principal;
+       List;
+     };
+type LedgerTransferArgs = 
+ record {
+   amount: record {e8s: nat64;};
+   created_at_time: opt record {timestamp_nanos: nat64;};
+   fee: record {e8s: nat64;};
+   from_subaccount: opt blob;
+   memo: nat64;
+   to: blob;
+ };
+type Governance = 
+ service {
+   claimChargeErrors: () -> (Result_5);
+   claimRefundErrors: () -> (vec TokenLock);
+   distributeBalance: (DistributeBalancePayload) -> (Result_4);
+   executeAcceptedProposals: () -> ();
+   getLockTransactionArgs: () -> (Result_3);
+   getLockedTokens: () -> (LockedTokens);
+   getProposal: (nat) -> (opt Proposal) query;
+   getProposals: () -> (vec Proposal) query;
+   getSystemParams: () -> (SystemParams) query;
+   mint: (MintPayload) -> (Result_1);
+   submitProposal: (ProposalPayload) -> (Result_2);
+   updateSystemParams: (UpdateSystemParamsPayload) -> (Result_1);
+   vote: (VoteArgs) -> (Result);
+ };
+type GetLockTransactionArgsError__1 = 
+ variant {
+   ComputeAccountIdFailed;
+   NftNotSupported;
+   TokenIdInvalidType;
+   TokenIdMissing;
+ };
+type GetLockTransactionArgsError = 
+ variant {
+   TokenLockerError: GetLockTransactionArgsError__1;
+   TokenNotSet;
+ };
+type ExtTransferArgs = 
+ record {
+   amount: nat;
+   from: variant {
+           address: text;
+           "principal": principal;
+         };
+   memo: blob;
+   notify: bool;
+   subaccount: opt vec nat8;
+   to: variant {
+         address: text;
+         "principal": principal;
+       };
+   token: text;
+ };
+type ExecuteProposalError = variant {ICRawCallError: text;};
+type DistributeBalancePayload = 
+ record {
+   amount: nat;
+   to: principal;
+   token: Token;
+ };
+type DistributeBalanceError = 
+ variant {
+   NotAllowed;
+   TokenInterfaceError: TransferError__2;
+ };
+type Dip20ApproveArgs = 
+ record {
+   amount: nat;
+   to: principal;
+ };
+type CreateGovernanceArgs = 
+ record {
+   proposals: vec Proposal;
+   system_params: SystemParams;
+ };
+type CommonError = 
+ variant {
+   InvalidToken: TokenIdentifier;
+   Other: text;
+ };
+type ChargeError = 
+ variant {
+   AlreadyCharged;
+   AlreadyRefunded;
+   ComputeAccountIdFailed;
+   InterfaceError:
+    variant {
+      DIP20: TxError;
+      EXT: TransferError;
+      LEDGER: TransferError__1;
+    };
+   LockNotFound;
+   NftNotSupported;
+   TokenIdInvalidType;
+   TokenIdMissing;
+ };
+type BlockIndex = nat64;
+type BalanceError = 
+ variant {
+   ComputeAccountIdFailed;
+   InterfaceError: variant {EXT: CommonError;};
+   NftNotSupported;
+   TokenIdInvalidType;
+   TokenIdMissing;
+ };
+type AuthorizationError = variant {NotAllowed;};
+type AccountIdentifier = text;
+service : (CreateGovernanceArgs) -> Governance

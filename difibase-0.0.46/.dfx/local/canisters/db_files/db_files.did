@@ -1,0 +1,96 @@
+type Wasm = vec nat8;
+type UUID = vec nat8;
+type Tokens = record {e8s: nat64;};
+type SubAccount = vec nat8;
+type Result_1 = 
+ variant {
+   err: FileUploadError;
+   ok: record {
+         UUID;
+         bool;
+       };
+ };
+type Result = 
+ variant {
+   err: FileUploadError;
+   ok: UUID;
+ };
+type PrincipalAccounting = 
+ record {
+   account_identifier: AccountIdentifier;
+   address: Hex;
+   "principal": principal;
+   principal_value: text;
+   subaccount: SubAccount;
+ };
+type Hex = text;
+type GUID = text;
+type FileUploadError = 
+ variant {
+   abort_upload;
+   crc_invalid;
+   unknown_error;
+ };
+type DBFILES = 
+ service {
+   accounting: (text) -> (PrincipalAccounting);
+   canister_accounting: () -> (CanisterAccounting);
+   clean_canister: (principal, Wasm) -> (bool);
+   clear_column: (text, text) -> (bool);
+   clear_table: (text) -> (bool);
+   create_blob_json: (nat, text, text, text, text, nat) -> (blob);
+   cycles_available: () -> (nat);
+   cycles_balance: () -> (nat);
+   delete_canister: (principal) -> (bool);
+   delete_column: (text, text) -> (bool);
+   delete_file: (UUID) -> (bool);
+   delete_table: (text) -> (bool);
+   delete_table_cell_value: (text, text, text) -> (bool);
+   delete_table_entity: (text, text) -> (bool);
+   download_chunks_by_guid: (GUID, nat) -> (opt blob);
+   download_chunks_by_uuid: (UUID, nat) -> (opt blob);
+   find_table_cell: (text, text, text) -> (text);
+   find_table_value: (text, text) -> (text);
+   get_collection_table_entityes: (text) -> (vec text);
+   get_collection_table_keys: (text) -> (vec text);
+   get_collection_tables: () -> (vec text);
+   get_file_info_by_guid: (GUID) -> (nat, text, text, text, text, nat);
+   get_file_info_by_uuid: (UUID) -> (nat, text, text, text, text, nat);
+   get_rts_memory_size: () -> (nat);
+   get_table_entityes: (text) -> (text);
+   get_table_keys: (text) -> (text);
+   get_tables: () -> (text);
+   get_version: () -> (text) query;
+   guid_to_uuid: (GUID) -> (UUID);
+   install_wasm: (principal, Wasm) -> (bool);
+   key_contains: (text, text) -> (bool);
+   minting_cycles: (nat) -> (Cycles);
+   reinstall_wasm: (principal, Wasm) -> (bool);
+   replace_table_value: (text, text, text, text) -> (opt text);
+   replace_value: (text, text, text, text) -> (opt text);
+   set_blob_file_info: (blob, text, text) -> (UUID, GUID);
+   set_file_info: (nat, text, text, text, text, nat) -> (UUID, GUID);
+   start_canister: (principal) -> (bool);
+   stop_canister: (principal) -> (bool);
+   table_contains: (text) -> (bool);
+   uninstall_wasm: (principal) -> (bool);
+   upgrade_wasm: (principal, Wasm) -> (bool);
+   upload_chunks: (blob, UUID, nat, nat) -> (UUID);
+   upload_chunks_crc: (blob, UUID, nat, nat, nat) -> (UUID, bool);
+   upload_chunks_crc_result: (blob, UUID, nat, nat, nat) -> (Result_1);
+   upload_chunks_result: (blob, UUID, nat, nat) -> (Result);
+   uuid_to_guid: (UUID) -> (GUID);
+ };
+type Cycles = nat;
+type CanisterAccounting = 
+ record {
+   account_identifier: AccountIdentifier;
+   address: Hex;
+   cycles: opt nat;
+   "principal": principal;
+   principal_value: text;
+   subaccount: SubAccount;
+   tokens_balance: Tokens;
+ };
+type AccountIdentifier = vec nat8;
+service : () -> DBFILES

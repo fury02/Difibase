@@ -1,0 +1,23 @@
+{
+  "admin": {
+    "ic": "mxjrx-tiaaa-aaaah-aaoxq-cai"
+  },
+  "wasm_storage": {
+    "ic": "n2hvz-4aaaa-aaaah-aaoqa-cai"
+  },
+  "token": {
+    "ic": "tedy5-fqaaa-aaaah-abj2a-cai"
+  },
+  "token_test": {
+    "ic": "vgjfw-jiaaa-aaaah-abjmq-cai"
+  },
+  "dbs": {
+    "ic": "trejq-eyaaa-aaaah-abjzq-cai"
+  },
+  "cluster": {
+    "ic": "mqixd-6qaaa-aaaah-aaoxa-cai"
+  },
+  "front": {
+    "ic": "7wwjw-5iaaa-aaaan-qbguq-cai"
+  }
+}

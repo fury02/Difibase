@@ -1,0 +1,35 @@
+{
+  "__Candid_UI": {
+    "local": "qhbym-qaaaa-aaaaa-aaafq-cai"
+  },
+  "admin": {
+    "local": "rrkah-fqaaa-aaaaa-aaaaq-cai"
+  },
+  "cluster": {
+    "local": "ryjl3-tyaaa-aaaaa-aaaba-cai"
+  },
+  "db_easy": {
+    "local": "r7inp-6aaaa-aaaaa-aaabq-cai"
+  },
+  "db_files": {
+    "local": "rkp4c-7iaaa-aaaaa-aaaca-cai"
+  },
+  "db_old": {
+    "local": "rno2w-sqaaa-aaaaa-aaacq-cai"
+  },
+  "front": {
+    "local": "renrk-eyaaa-aaaaa-aaada-cai"
+  },
+  "test-db-easy": {
+    "local": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+  },
+  "token": {
+    "local": "qoctq-giaaa-aaaaa-aaaea-cai"
+  },
+  "token_test": {
+    "local": "qjdve-lqaaa-aaaaa-aaaeq-cai"
+  },
+  "wasm_storage": {
+    "local": "qaa6y-5yaaa-aaaaa-aaafa-cai"
+  }
+}

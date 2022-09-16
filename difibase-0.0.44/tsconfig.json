@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/typings/typings.d.ts"
+    ]
+  },
+  "paths": {
+    "dfx-generated/*": [".dfx/local/canisters/dbs/*"],
+    "dfx-types/*": ["./src/typings/typings.d.ts"]
+  },
+  "include": [ "src", "src/*.ts", "src/**/*.ts","src/*.json", "src/**/*.json", ".env"],
+}

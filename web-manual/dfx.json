@@ -1,0 +1,21 @@
+{
+  "canisters": {
+    "web_manual_frontend": {
+      "frontend": {
+        "entrypoint": "src/web_manual_frontend/index.html"
+      },
+      "source": [
+        "src/web_manual_frontend/assets",
+        "dist/web_manual_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "version": 1
+}

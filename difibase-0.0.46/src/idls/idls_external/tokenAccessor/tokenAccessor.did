@@ -1,0 +1,139 @@
+type TxError = 
+ variant {
+   AmountTooSmall;
+   BlockUsed;
+   ErrorOperationStyle;
+   ErrorTo;
+   InsufficientAllowance;
+   InsufficientBalance;
+   LedgerTrap;
+   Other: text;
+   Unauthorized;
+ };
+type TransferError__1 = 
+ variant {
+   BadFee: record {expected_fee: Token__1;};
+   InsufficientFunds: record {balance: Token__1;};
+   TxCreatedInFuture;
+   TxDuplicate: record {duplicate_of: BlockIndex;};
+   TxTooOld: record {allowed_window_nanos: nat64;};
+ };
+type TransferError = 
+ variant {
+   CannotNotify: AccountIdentifier;
+   InsufficientBalance;
+   InvalidToken: TokenIdentifier;
+   Other: text;
+   Rejected;
+   Unauthorized: AccountIdentifier;
+ };
+type Token__1 = record {e8s: nat64;};
+type TokenStandard = 
+ variant {
+   DIP20;
+   DIP721;
+   EXT;
+   LEDGER;
+   NFT_ORIGYN;
+ };
+type TokenIdentifier = text;
+type TokenAccessor = 
+ service {
+   addMinter: (principal) -> (Result_1);
+   claimMintTokens: () -> (ClaimMintTokens);
+   getAdmin: () -> (principal) query;
+   getMintRecord: (nat) -> (opt MintRecord) query;
+   getMintRegister: () -> (vec MintRecord) query;
+   getMinters: () -> (vec principal) query;
+   getToken: () -> (opt Token) query;
+   isAuthorizedMinter: (principal) -> (bool) query;
+   mint: (principal, nat) -> (MintRecord);
+   removeMinter: (principal) -> (Result_1);
+   setAdmin: (principal) -> (Result_1);
+   setToken: (Token) -> (Result);
+ };
+type Token = 
+ record {
+   canister: principal;
+   identifier: opt variant {
+                     "nat": nat;
+                     "text": text;
+                   };
+   standard: TokenStandard;
+ };
+type SetTokenError = 
+ variant {
+   IsFungibleError: IsFungibleError;
+   NotAuthorized;
+   TokenNotFungible;
+   TokenNotOwned;
+ };
+type Result_2 = 
+ variant {
+   err: MintError;
+   ok: opt nat;
+ };
+type Result_1 = 
+ variant {
+   err: NotAuthorizedError;
+   ok;
+ };
+type Result = 
+ variant {
+   err: SetTokenError;
+   ok;
+ };
+type NotAuthorizedError = variant {NotAuthorized;};
+type MintResult = 
+ variant {
+   err: MintError;
+   ok: opt nat;
+ };
+type MintRecord = 
+ record {
+   amount: nat;
+   date: int;
+   index: nat;
+   result: Result_2;
+   to: principal;
+   token: Token;
+ };
+type MintError = 
+ variant {
+   ComputeAccountIdFailed;
+   InterfaceError:
+    variant {
+      DIP20: TxError;
+      EXT: TransferError;
+      LEDGER: TransferError__1;
+    };
+   NftNotSupported;
+   TokenIdInvalidType;
+   TokenIdMissing;
+ };
+type IsFungibleError = 
+ variant {
+   InterfaceError: variant {EXT: CommonError;};
+   TokenIdInvalidType;
+   TokenIdMissing;
+ };
+type CommonError = 
+ variant {
+   InvalidToken: TokenIdentifier;
+   Other: text;
+ };
+type ClaimMintTokens = 
+ record {
+   results: vec ClaimMintRecord;
+   total_mints_failed: nat;
+   total_mints_succeeded: nat;
+ };
+type ClaimMintRecord = 
+ record {
+   amount: nat;
+   mint_record_id: nat;
+   result: MintResult;
+ };
+type BlockIndex = nat64;
+type AccountIdentifier = text;
+service : (principal) -> TokenAccessor

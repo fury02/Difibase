@@ -1,0 +1,8 @@
+{
+  "incoming_source": {
+    "Path": "/tmp/ic-canister-http-adapter-socket.281961.1670136305"
+  },
+  "logger": {
+    "level": "error"
+  }
+}

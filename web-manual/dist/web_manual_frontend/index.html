@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="Firefox">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<link href="assets/images/favicon.png" rel="icon" />
+<title>Difibase documentation</title>
+<meta name="description" content="Your ThemeForest item Name and description">
+<meta name="author" content="">
+
+<!-- Stylesheet
+============================== -->
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+<!-- Magnific Popup -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+<!-- Highlight Syntax -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top">
+    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+<!--      <nav class="primary-menu navbar navbar-expand-lg navbar-dropdown-dark">-->
+      <div class="container-fluid">
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		<!-- Logo -->
+        <a class="logo ml-md-3" href="index.html" title="iDocs Template">
+            <img src="assets/images/logo.png" alt="iDocs Template"  width="160"
+                 height="45"/>
+        </a>
+
+		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+
+		<div id="header-nav" class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav"> </ul>
+        </div>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+
+	<!-- Sidebar Navigation
+	============================ -->
+
+	<div class="idocs-navigation bg-dark docs-navigation-dark">
+      <ul class="nav flex-column ">
+          <li class="nav-item"><a class="nav-link active" href="#idocs_start">Starting</a>
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="#idocs_version">Version</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_links">Links</a></li>
+              </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="#idocs_general">General information</a>
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="#idocs_blockchain">Blockchain IC </a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_difibase_on_blockchain">Database</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_difibase_architecture">Architecture</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_difibase_scheme_install">Scheme install</a></li>
+              </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="#idocs_using_wasm_storage">Wasm storage</a>
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="#idocs_using_func_wasm_install">Install</a></li>
+              </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="#idocs_using_func">Using the functionality</a>
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="#idocs_using_plug">Login with Plug</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_using_func_cluster_create">Cluster create</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_using_func_database_create">Database create</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_using_func_database_financing">Financing of canisters</a></li>
+              </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="#idocs_db_api_easy">Api #1</a>
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_explanation">Explanation</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_create_table">Create table</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_create_column">Create column</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_add_entity">Add entity</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_update_entity">Update entity</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_delete_entity">Delete entity cell</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_delete_row">Delete row</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_delete_column_table">Delete column</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_delete_table">Delete table</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_find_table_cell">Find table entity cell</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_find_table_value">Find row</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_get_table_entityes">Get table values (json)</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_get_collection_table_entityes">Get table values (collection)</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_get_tables">Get tables in database(json)</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_get_collection_tables">Get tables (collection)</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_get_table_keys">Get name tables in database(json)</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_get_collection_table_keys">Get name tables in database (collection)</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_clear_table">Clear table</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_db_easy_api_clear_column">Clear column</a></li>
+              </ul>
+          </li>
+<!--          <li class="nav-item"><a class="nav-link active" href="#idocs_db_api_db_files">Api #2</a>-->
+<!--              <ul class="nav flex-column">-->
+<!--              </ul>-->
+<!--          </li>-->
+          <li class="nav-item"><a class="nav-link active" href="#idocs_sample">Sample</a>
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="#idocs_sample_web">Web</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_sample_console">Console</a></li>
+              </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="#idocs_integration">Integration</a>
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="#idocs_integration_web">Web</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#idocs_integration_mobile">Mobile</a></li>
+              </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="#idocs_security">Security</a>
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="#idocs_security_databases">Security and Integrity</a></li>
+              </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#idocs_changelog">Changelog</a>
+			<ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="#v0.0.2">v0.0.2</a></li>
+                <li class="nav-item"><a class="nav-link" href="#v0.0.1">v0.0.1</a></li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container">
+
+        <!-- Getting Started
+		============================ -->
+        <section id="docs_start">
+            <h1>Documentation</h1>
+            <h4>Documentation in a phased development</h4>
+<!--            <p id="idocs_version" class="lead">Version</p>-->
+            <h3 id="idocs_version">Version</h3>
+		    <hr>
+		    <div class="row">
+			    <div class="col-sm-6 col-lg-4">
+				    <ul class="list-unstyled">
+					    <li><strong>Version:</strong>0.0.16</li>
+					    <li><strong>Author:</strong> <a href="https://github.com/fury02" target="_blank">Fury Safik</a></li>
+				    </ul>
+			    </div>
+			    <div class="col-sm-6 col-lg-4">
+				    <ul class="list-unstyled">
+					    <li><strong class="font-weight-700">Created:</strong> 2022</li>
+					    <li><strong>Update:</strong> 2022</li>
+				    </ul>
+			    </div>
+		    </div>
+            <hr>
+            <!--            <p class="lead">Links</p>-->
+            <h3 id="idocs_links">Links</h3>
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <ul class="list-unstyled">
+                        <li><strong>Web on ic:</strong><a href="https://7wwjw-5iaaa-aaaan-qbguq-cai.ic0.app/" target="_blank">  Difibase</a></li>
+                        <li><strong>Web on fleek:</strong><a href="https://bnc6j-7iaaa-aaaad-qeo6q-cai.ic.fleek.co/example/blockchain_ic/tables_create_upload" target="_blank">  Difibase</a></li>
+                        <li><strong>Github:</strong><a href="https://github.com/fury02/Difibase" target="_blank"> source</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <ul class="list-unstyled">
+                        <li><strong>Documentation on ic:</strong><a href="https://3pq4i-xiaaa-aaaan-qccta-cai.ic0.app/" target="_blank">  Manual</a></li>
+                        <li><strong>Documentation on fleek:</strong><a href=" " target="_blank">  Manual</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+		<hr class="divider">
+
+          <section id="idocs_general">
+              <h3 id="idocs_blockchain">Blockchain IC<small class="text-muted"></small></h3>
+              <h6>
+                  The Internet Computer (ICP) is the first World Computer blockchain,
+                  powered by innovations in cryptography and computer science derived from deep crypto research begun in 2015.
+                  It is a blockchain that is scalable without limits and can host and run smart contracts with efficiency comparable to traditional centralized IT infrastructure.
+                  Internet Computer smart contracts can even serve web experiences, securely interact with Web2, and create and sign transactions for other blockchains.
+                  As a World Computer blockchain, it supports the full end-to-end decentralization of online systems and services, which can now be built entirely on chain exclusively from
+                  smart contracts, without the need for centralized traditional IT and Big Tech's cloud services.
+              </h6>
+              <h3 id="idocs_difibase_on_blockchain">Database</h3>
+              <h6>
+                  Difibase - NoSQL database management system on the Internet Computer You can create your own database cluster and have several databases in it.
+                  It is possible to create a simple database and with file support.
+                  It is also allowed to integrate their own database versions and use them in this service
+              </h6>
+              <h3 id="idocs_difibase_architecture">Architecture</h3>
+              <h6>
+                  The main feature of the Internet Computer blockchain is canisters.
+                  Canisters perform the following functions: data storage and (or) computational tasks.
+                  This project is based on these principles.
+
+                  There are several entities in which the principles of functioning are laid down.
+                  This is about the same as in classic databases. Here they are: administrator, cluster, database.
+              </h6>
+
+              <p><a class="popup-img" href="assets/images/scheme.png"><img class="img-fluid border" src="assets/images/scheme.png" alt=""></a></p>
+
+              <h6>
+                  User interaction with objects via the web interface. Objects in this context are: clusters and databases
+              </h6>
+              <p><a class="popup-img" href="assets/images/scheme2.png"><img class="img-fluid border" src="assets/images/scheme2.png" alt=""></a></p>
+
+              <p> <h6> A distinctive feature is modularity. There is a possibility to choose between different versions of databases.
+              You can also add your own database source code. Compile it in .wasm file send it to wasm-storage. (details below) </h6> </p>
+
+              <p> <h6> At the moment, there are two versions of the database in the project. </h6> </p>
+
+              <p><a class="popup-img" href="assets/images/db_source.png"><img class="img-fluid border" src="assets/images/db_source.png" alt=""></a></p>
+
+              <p> <h6> <em> Their sources: </em> </h6> </p>
+              <h6> with ordinary: </h6>
+              <h6> <b>  https://github.com/fury02/Difibase/tree/main/difibase-0.0.44/src/dbs/databases/version_easy   </b>  </h6>
+              <h6> with support files: </h6>
+              <h6> <b>  https://github.com/fury02/Difibase/tree/main/difibase-0.0.44/src/dbs/databases/version_files  </b>  </h6>
+              <p> <h6> They are compiled into db_easy.wasm and db_files.wasm </h6> </p>
+
+              <h3 id="idocs_difibase_scheme_install">Scheme install wasm</h3>
+              <h6> Canister creation scheme and wasm installation </h6>
+              <p><a class="popup-img" href="assets/images/scheme3.png"><img class="img-fluid border" src="assets/images/scheme3.png" alt=""></a></p>
+
+          </section>
+          <hr class="divider">
+          <!-- Wasm storage install
+============================ -->
+          <section id="idocs_using_wasm_storage">
+              <h3 id="idocs_using_func_wasm_install">Install wasm file</h3>
+              <h6>
+                  <p>Download the ready wasm-file.</p>
+                  <p> For example, it will be <b>cluster.wasm</b> (this is a linking file for several instances) and <b>db_easy.wasm</b> </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/wasm.png"><img class="img-fluid border" src="assets/images/wasm.png" alt=""></a></p>
+              <h6>
+                  <p>Upload(install)  <b>cluster.wasm</b></p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/wasm2.png"><img class="img-fluid border" src="assets/images/wasm2.png" alt=""></a></p>
+              <h6>
+                  <p>Upload(install)  <b>db_easy.wasm</b></p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/wasm3.png"><img class="img-fluid border" src="assets/images/wasm3.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      We will need these files in the future when creating a cluster and instances.
+                      Note: if the system already has these files, there is no need to download wasm files.
+                      Unless you want to use your own specific (custom) implementations</p>
+              </h6>
+          </section>
+          <hr class="divider">
+          <!-- Func
+    ============================ -->
+          <section id="idocs_using_func">
+              <h3 id="idocs_using_plug">Login with Plug</h3>
+              <h6>
+                  <p>
+                      For further work, a Plug wallet is required.
+                      Web address: <em>https://plugwallet.ooo/</em>.
+                      After downloading the wallet, perform authentication using the Plug. Other methods are not supported yet.
+                  </p>
+              </h6>
+
+              <p><a class="popup-img" href="assets/images/login.png"><img class="img-fluid border" src="assets/images/login.png" alt=""></a></p>
+              <p><a class="popup-img" href="assets/images/pl.png"><img class="img-fluid border" src="assets/images/pl.png" alt=""></a></p>
+
+              <h3 id="idocs_using_func_cluster_create">Cluster create</h3>
+
+              <h6>
+                  <p>
+                      Further actions require replenishment of the wallet with ICP coins.
+                      The main thing is never to store funds on exchanges and, if possible, use hardware wallets
+                  </p>
+              </h6>
+
+              <h6>
+                  <p>
+                      Let's create our own cluster (by default)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster.png"><img class="img-fluid border" src="assets/images/cluster.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      Value ICP = 0.3
+                      Name = "Cluster"
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster2.png"><img class="img-fluid border" src="assets/images/cluster2.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      Most likely, the amount of ICP is quite small.
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster3.png"><img class="img-fluid border" src="assets/images/cluster3.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      The fact is that we need about 1200000000000 cycles (or 1.2T cycles)
+                      Take a look at the picture below.
+                      The actual cost of conversion is also indicated there.
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster4.png"><img class="img-fluid border" src="assets/images/cluster4.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      The stages of creation are shown below in the screenshots
+                  </p>
+                  <p>
+                      1)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster5.png"><img class="img-fluid border" src="assets/images/cluster5.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      2) <b> Be sure to wait until the operation is completed! Do not refresh the page until the operation is completed! </b>
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster6.png"><img class="img-fluid border" src="assets/images/cluster6.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      3)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster7.png"><img class="img-fluid border" src="assets/images/cluster7.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      4)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster8.png"><img class="img-fluid border" src="assets/images/cluster8.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      You can also create a specific cluster with a different version specified in wasm-storage
+                  </p>
+              </h6>
+              <h6>
+                  <p>
+                      You can stop the cluster or resume work. Details below on the screenshots.
+                  </p>
+                  <p>
+                      1)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster9.png"><img class="img-fluid border" src="assets/images/cluster9.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      2)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/cluster10.png"><img class="img-fluid border" src="assets/images/cluster10.png" alt=""></a></p>
+              <h3 id="idocs_using_func_database_create">Database create</h3>
+              <h6>
+                  <p>
+                      At the moment, wasm-storage contains two wasm objects: db_easy.wasm; db_files.wasm .
+                      By default, instance is created from db_easy.wasm. Create from db_files.wasm .
+                      Below are the screenshots.
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance.png"><img class="img-fluid border" src="assets/images/instance.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      Select cluster
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance2.png"><img class="img-fluid border" src="assets/images/instance2.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      Wasm file db_files: version "1"; name "db_files.wasm"
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance3.png"><img class="img-fluid border" src="assets/images/instance3.png" alt=""></a></p>
+              <h6>
+                  <p>
+                     1) Create instance:
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance4.png"><img class="img-fluid border" src="assets/images/instance4.png" alt=""></a></p>
+              <h6>
+                  <p>
+                     2) Check balance
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance5.png"><img class="img-fluid border" src="assets/images/instance5.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      3) It is also necessary to select the amount ICP . Let me remind you about 1200000000000 cycles (or 1.2T cycles)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance6.png"><img class="img-fluid border" src="assets/images/instance6.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      4) <b> Be sure to wait until the operation is completed! Do not refresh the page until the operation is completed! </b>
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance7.png"><img class="img-fluid border" src="assets/images/instance7.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      5)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance8.png"><img class="img-fluid border" src="assets/images/instance8.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      6) New database (instance)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance9.png"><img class="img-fluid border" src="assets/images/instance9.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      1) Let's go to the next tab. We can update the instances state. (Similar to clusters)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance10.png"><img class="img-fluid border" src="assets/images/instance10.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      2) Select cluster and instance
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance11.png"><img class="img-fluid border" src="assets/images/instance11.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      1) You can: clear the database, stop, start, or delete. Note: Deleting an instance leaves it registered in the system but removes it from the blockchain.
+                      The following shows the stop and start of the database.
+                  </p>
+              </h6>
+
+              <p><a class="popup-img" href="assets/images/instance12.png"><img class="img-fluid border" src="assets/images/instance12.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      2) Starting:
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/instance13.png"><img class="img-fluid border" src="assets/images/instance13.png" alt=""></a></p>
+
+              <h3 id="idocs_using_func_database_financing">Financing of canisters</h3>
+              <h6>
+                  <p>
+                      Canisters almost always consume cycles. In order for the canister to be always active, there must be a certain number of cycles on the balance of the canister.
+                      At the moment, we can convert ICP into cycles.
+                      Perhaps in the future it will take place automatically or a notification by mail.
+                      On today need to look at the balance of  of clusters and database and, if necessary, carry out financing.
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/fin.png"><img class="img-fluid border" src="assets/images/fin.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      Amount cycles in selected cluster
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/fin2.png"><img class="img-fluid border" src="assets/images/fin2.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      1) Let's choose cluster financing
+                  </p>
+                  <p>
+                      <b> Be sure to wait until the operation is completed! Do not refresh the page until the operation is completed! </b>
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/fin3.png"><img class="img-fluid border" src="assets/images/fin3.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      2) Minted cycles
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/fin4.png"><img class="img-fluid border" src="assets/images/fin4.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      Next, we will similarly finance the instance database.
+                      Let's choose a database from the available ones.
+                      It can be seen that the balance is now: 1.15827T cycles
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/fin5.png"><img class="img-fluid border" src="assets/images/fin5.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      We will finance the database in the amount of 0.09 ICP
+                  </p>
+                  <p>
+                      The minted cycles will approximately be in the amount of 248292000000
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/fin6.png"><img class="img-fluid border" src="assets/images/fin6.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      1)
+                  </p>
+                  <p>
+                      <b> Be sure to wait until the operation is completed! Do not refresh the page until the operation is completed! </b>
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/fin7.png"><img class="img-fluid border" src="assets/images/fin7.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      2)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/fin8.png"><img class="img-fluid border" src="assets/images/fin8.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      3)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/fin9.png"><img class="img-fluid border" src="assets/images/fin9.png" alt=""></a></p>
+          </section>
+          <hr class="divider">
+          <!-- Api
+    ============================ -->
+          <section id="idocs_db_api_easy">
+              <h3>Easy database</h3>
+              <h6 id="idocs_db_easy_api_explanation"><b>Parametrs:</b></h6>
+              <div class="alert alert-dark">
+                  <h6><b><em>table_key</em></b> - name (or key) table</h6>
+                  <h6><b><em>column_key_name</em></b> - name (or key) column</h6>
+                  <h6><b><em>column_key</em></b> - name (or key) column</h6>
+                  <h6><b><em>row_key</em></b> - the key of the table row is actually <em>entity_key</em> </h6>
+                  <h6><b><em>entity_key</em></b> - key the main key of the recorded data.
+                      It can be a number and or a string.
+                      In fact, this is the ID of a row in the table.</h6>
+                  <h6><b><em>entity_value</em></b> - recorded value</h6>
+              </div>
+              <h3 id="idocs_db_easy_api_create_table"></h3>
+              <h3 id="idocs_db_easy_api_create_column"></h3>
+              <h3 id="idocs_db_easy_api_add_entity"></h3>
+              <h3 id="idocs_db_easy_api_update_entity"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Creating a table, adding data, adding a column, or updating data:
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      replace_value (
+                      <p style="text-align: center">table_key: Text,</p>
+                      <p style="text-align: center">column_key_name: Text,</p>
+                      <p style="text-align: center">entity_key: Text,</p>
+                      <p style="text-align: center">entity_value: Text</p>
+                      ) : async ?Text;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          The added value or null is returned
+                      </p>
+                  </h6>
+              </div>
+              <h6>Note:</h6>
+              <h6> - if there is no table, then it is created </h6>
+              <h6>  - if there is no column, it is created </h6>
+
+              <h3 id="idocs_db_easy_api_delete_entity"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Delete entity cell value:
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      delete_table_cell_value (
+                      <p style="text-align: center">table_key: Text,</p>
+                      <p style="text-align: center">column_key_name: Text,</p>
+                      <p style="text-align: center">entity_key: Text</p>
+                      <!--  <p style="text-align: center">entity_value: Text</p>-->
+                      ) : async Bool;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns the result of the operation (true or false)
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_delete_row"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Delete table rows value:
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      delete_table_entity (
+                      <p style="text-align: center">table_key: Text,</p>
+                      <p style="text-align: center">row_key: Text</p>
+                      <!-- <p style="text-align: center">column_key_name: Text,</p>-->
+                      <!-- <p style="text-align: center">entity_key: Text,</p>-->
+                      <!-- <p style="text-align: center">entity_value: Text</p>-->
+                      ) : async Bool;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns the result of the operation (true or false)
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_delete_column_table"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Delete a column in a table:
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      delete_column (
+                      <p style="text-align: center">table_key: Text,</p>
+                      <p style="text-align: center">colunm_key</p>
+                      <!-- <p style="text-align: center">row_key: Text,</p>-->
+                      <!-- <p style="text-align: center">column_key_name: Text,</p>-->
+                      <!-- <p style="text-align: center">entity_key: Text,</p>-->
+                      <!-- <p style="text-align: center">entity_value: Text</p>-->
+                      ) : async Bool;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns the result of the operation (true or false)
+                      </p>
+                  </h6>
+              </div>
+
+
+              <h3 id="idocs_db_easy_api_delete_table"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Delete table:
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      delete_table (
+                      <p style="text-align: center">table_key: Text</p>
+                      <!-- <p style="text-align: center">colunm_key</p>-->
+                      <!-- <p style="text-align: center">row_key: Text,</p>-->
+                      <!-- <p style="text-align: center">column_key_name: Text,</p>-->
+                      <!-- <p style="text-align: center">entity_key: Text,</p>-->
+                      <!-- <p style="text-align: center">entity_value: Text</p>-->
+                      ) : async Bool;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns the result of the operation (true or false)
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_find_table_cell"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                           - Find table entity cell:
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      find_table_cell (
+                      <p style="text-align: center">table_key: Text,</p>
+                       <p style="text-align: center">column_key_name: Text,</p>
+                       <p style="text-align: center">entity_key: Text</p>
+                      ) : async Text;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns a value or an empty string
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_find_table_value"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Find row:
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      find_table_cell (
+                      <p style="text-align: center">table_key: Text,</p>
+                      <p style="text-align: center">entity_key: Text</p>
+                      ) : async Text;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns a value or an empty string
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_get_table_entityes"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Get table values (json):
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      get_table_entityes (
+                      <p style="text-align: center">table_key: Text</p>
+                      ) : async Text;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns a value(json) or an empty string ([{}] or "")
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_get_collection_table_entityes"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Get table values (collection):
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      get_collection_table_entityes(
+                      <p style="text-align: center">table_key: Text</p>
+                      ) : async [Text];</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns a array values
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_get_tables"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Get tables in database(json):
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" > <b> <em>
+                      <p style="text-align: center"> get_tables() : async Text;</p> </em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns a value(json) or an empty string ([{}] or "")
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_get_collection_tables"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Get tables (collection):
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      <p style="text-align: center">get_collection_tables() : async [Text];</p> </em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns a array values
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_get_table_keys"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Get name tables in database(json):
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      get_table_keys(
+                      <p style="text-align: center">table_key: Text</p>
+                      ) : async Text;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns a value(json) or an empty string ([{}] or "")
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_get_collection_table_keys"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Get name tables in database (collection):
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      get_collection_table_keys(
+                      <p style="text-align: center">table_key: Text</p>
+                      ) : async [Text];</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns a array values
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_clear_table"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Clear table:
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      clear_table(
+                      <p style="text-align: center">table_key: Text</p>
+                      ) : async Bool;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns the result of the operation (true or false)
+                      </p>
+                  </h6>
+              </div>
+
+              <h3 id="idocs_db_easy_api_clear_column"></h3>
+              <div style="background: #f8f8f2; text-underline-color: white">
+                  <h6>
+                      <p>
+                          - Clear column in table:
+                      </p>
+                  </h6>
+              </div>
+              <div style="background: black; text-underline-color: white" class="text-white"  >
+                  <h6 class="text-white" >  <b>  <em>
+                      clear_column(
+                      <p style="text-align: center">table_key: Text,</p>
+                      <p style="text-align: center">colunm_key: Text</p>
+                      ) : async Bool;</em> </b> </h6>
+              </div>
+              <div style="background: #ffeeba; text-underline-color: white">
+                  <h6>
+                      <p>
+                          Returns the result of the operation (true or false)
+                      </p>
+                  </h6>
+              </div>
+
+              <h6>
+                  <p>
+                      **Нou can view a more complete and up-to-date API: <a href="https://github.com/fury02/Difibase" target="_blank">  Difibase</a></li>
+                  </p>
+              </h6>
+
+          </section>
+
+          <hr class="divider">
+
+<!--          <section id="idocs_db_files_api">-->
+<!--              <h3>Files database></h3>-->
+<!--          </section>-->
+
+          <section id="idocs_sample">
+              <h3 id="idocs_sample_web">Web</h3>
+              <h4>Coins</h4>
+
+              <h6>
+                  <p>
+                      After creating a cluster and database instances in it, we can test them.
+                      Let's go to the next tab.
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/1.png"><img class="img-fluid border" src="assets/images/sample_web/1.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      Select instance
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/2.png"><img class="img-fluid border" src="assets/images/sample_web/2.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Fill in some data (BTC)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/3.png"><img class="img-fluid border" src="assets/images/sample_web/3.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Fill in some data (ETH)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/4.png"><img class="img-fluid border" src="assets/images/sample_web/4.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Fill in some data (ICP)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/5.png"><img class="img-fluid border" src="assets/images/sample_web/5.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Next, let's look at the table
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/6.png"><img class="img-fluid border" src="assets/images/sample_web/6.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Similarly filled in the "Price" column
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/7.png"><img class="img-fluid border" src="assets/images/sample_web/7.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Let's go to the next tab
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/8.png"><img class="img-fluid border" src="assets/images/sample_web/8.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Upload the file
+                  </p>
+                  <p>
+                      1)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/9.png"><img class="img-fluid border" src="assets/images/sample_web/9.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      2)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/10.png"><img class="img-fluid border" src="assets/images/sample_web/10.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      We can see in the table below how the link to the file was created.
+                      This is the Guid 0e99c15d6e7642e08d80cd6a01fb37a2
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/11.png"><img class="img-fluid border" src="assets/images/sample_web/11.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Go ahead and download the file
+                  </p>
+                  <p>
+                      1)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/12.png"><img class="img-fluid border" src="assets/images/sample_web/12.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      2)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/13.png"><img class="img-fluid border" src="assets/images/sample_web/13.png" alt=""></a></p>
+              <h6>
+                  <p>
+                      3)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/14.png"><img class="img-fluid border" src="assets/images/sample_web/14.png" alt=""></a></p>
+
+
+              <h6>
+                  <p>
+                      Consider the last operation in this example.
+                      These are not all operations that can be tested in the Web interface.
+                      The Web interface also contains only a part of the API.
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/15.png"><img class="img-fluid border" src="assets/images/sample_web/15.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Pre-filled information
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/16.png"><img class="img-fluid border" src="assets/images/sample_web/16.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      Remove the "true" value in the Stable column of Tether and USDC
+                  </p>
+                  <p>
+                      1)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/17.png"><img class="img-fluid border" src="assets/images/sample_web/17.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      2)
+                  </p>
+              </h6>
+              <p><a class="popup-img" href="assets/images/sample_web/18.png"><img class="img-fluid border" src="assets/images/sample_web/18.png" alt=""></a></p>
+
+              <h6>
+                  <p>
+                      The "Usage" tab contains: #1 Databases and #2 Databases (files)
+                  </p>
+                  <p>
+                      #1 Databases - this is a simple database with no file operations, so it is not supported in #2 Databases
+                      If a database with file support is installed, it is supported in both "#1 Databases " and "#2 Databases"
+                  </p>
+              </h6>
+
+
+              <h3 id="idocs_sample_console">Console</h3>
+              <h4>Planets (earlier)</h4>
+              <div className="badge bg-light flex-sm-column d-flex justify-content-center">
+
+                  <h6 className="text-lg-center"><small className="text-muted ">In this material there is a canister of the mxjrx-tiaaaa-aaaah-aaaah-cai service,</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">it can change if you have your own solution, then this one will be a different ID</small></h6>
+                  <h1></h1>
+                  <h6 className="text-lg-center"><small className="text-muted">Let's consider a simple example, using the example of the planets of the solar system.</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">As an experiment, we want to create such a simple table:</small></h6>
+                  <h1></h1>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_a.png"><img class="img-fluid border" src="assets/images/sample_planets/img_a.png" alt=""></a></p>
+
+                  <h1></h1>
+
+                  <h6 className="text-lg-center"><small className="text-muted">We can execute such a command using an agent in a web application or a command line. The command line will be used here.</small></h6>
+
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_d.png"><img class="img-fluid border" src="assets/images/sample_planets/img_d.png" alt=""></a></p>
+
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai replace_value '("Planets", "Planet","3","Earth")'</code></h6>
+                  <h6 className="text-lg-center">
+                      <small className="text-black">Where: </small>
+                      <small className="text-black">"Planets" - table name; </small>
+                      <small className="text-black">"Planet" - colunm name; </small>
+                      <small className="text-black">"3" - id; </small>
+                      <small className="text-black">"Earth" - planet name; </small>
+                  </h6>
+                  <h1></h1>
+                  <h6 className="text-lg-center"><small className="text-muted">Having previously initialized the agent, the pseudocode string will have the following form</small></h6>
+                  <h6><code >ic_agent.replace_value("Planets", "Planet","3","Earth")</code></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">Add the radius column with ID equal to 3. Thereby linking the data.</small></h6>
+                  <h6><code>replace_value '("Planets", "Radius (km)","3","6371")'</code></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">Let's change some data and add another planet - Mars.</small></h6>
+                  <h6><code>replace_value '("Planets", "Planet","4","Mars")'</code></h6>
+                  <h6><code>replace_value '("Planets", "Radius (km)","4","3389")'</code></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">Visually, in our view, the data table should look like:</small></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_b.png"><img class="img-fluid border" src="assets/images/sample_planets/img_b.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">By executing the command</small></h6>
+                  <h6><code >dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai get_table_entityes '("Planets")'</code></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">We get the following result. In fact, it is an array of json objects. But we can also get a pure json object.</small></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_c.png"><img class="img-fluid border" src="assets/images/sample_planets/img_c.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">The following api command returns a json object that can then be deserialized.</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai get_table_entityes_json '("Planets")'</code></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">Result:</small></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_f.png"><img class="img-fluid border" src="assets/images/sample_planets/img_f.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">Generally speaking, the ID field implies meaningful information. But it's okay if you use random values.  </small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">This implementation has the concept that you know or semantically (mathematically) understand the values of the identifier.</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">(Several implementations are planned for the user's choice in future versions) This is typical for NoSQL type databases.  </small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">To make it more interesting, I'll add a few more planets. And we will get all the keys (more precisely, the ID) to this table.</small></h6>
+                  <h6><code>replace_value '("Planets", "Planet","2","Venus")'</code></h6>
+                  <h6><code>replace_value '("Planets", "Radius (km)","2","6051")'</code></h6>
+                  <h6><code>replace_value '("Planets", "Planet","7","Uranus")'</code></h6>
+                  <h6><code>replace_value '("Planets", "Radius (km)","7","25362")'</code></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_e.png"><img class="img-fluid border" src="assets/images/sample_planets/img_e.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">We will get the keys by commands. Below, the json object can be obtained as an array. Both possibilities are presented.</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai get_table_keys_json '("Planets")'</code></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai get_table_keys '("Planets")'</code></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_k.png"><img class="img-fluid border" src="assets/images/sample_planets/img_k.png" alt=""></a></p>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_k_a.png"><img class="img-fluid border" src="assets/images/sample_planets/img_k_a.png" alt=""></a></p>
+                  <h6 className="text-sm-center"><small className="text-black">*(the key as well as the ID have an equivalent value)</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">In this case, identifiers have a semantic meaning. These are planets in order from the sun. </small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">But it was possible to number by auto-increment or enter any value, including the name of the planet itself.</small></h6>
+                  <h1></h1>
+                  <h1></h1>
+
+                  <h1></h1>
+                  <h6 className="text-lg-center"><small className="text-muted">Let's say we don't know anything about the current data structure. Next, let's search for values.</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai get_tables</code></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai get_tables_json</code></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">The result of the query of all tables:</small></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_s.png"><img class="img-fluid border" src="assets/images/sample_planets/img_s.png" alt=""></a></p>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img__s_k.png"><img class="img-fluid border" src="assets/images/sample_planets/img_s_k.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">Realizing that this is a planet table, we can find out what the radius of the seventh planet is. Below is the request itself.</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai find_table_cell '("Planets", "Planet","7")'</code></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_j.png"><img class="img-fluid border" src="assets/images/sample_planets/img_j.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">A search was performed on all cells of the specified table</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">Below is a request to get the whole string.</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai find_table_value '("Planets","7")'</code></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_j_i.png"><img class="img-fluid border" src="assets/images/sample_planets/img_j_i.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">It is not yet possible to create external links between tables. </small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">You can easily compensate by expanding the table dynamically. Yes, this creates some redundancy, but so far only so.</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">Let's say we need to create a sign of the presence of a chemical element - let's say water. </small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">Water is definitely there - true, definitely not - false and an indefinite null situation. Below is a modified data table.</small></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_t.png"><img class="img-fluid border" src="assets/images/sample_planets/img_t.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">The actual addition of a column (Water) by calling a function with the necessary parameters:</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai replace_value '("Planets", "Water","3","true")'</code></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_y.png"><img class="img-fluid border" src="assets/images/sample_planets/img_y.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">From the query, we see that updated data has returned, those rows that have not been updated have the values "null".</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">We will correct this situation and move on.</small></h6>
+                  <h6><code>replace_value '("Planets", "Water","4","true")'</code></h6>
+                  <h6><code>replace_value '("Planets", "Water","2","true")'</code></h6>
+                  <h6><code>replace_value '("Planets", "Water","7","true")'</code></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_y_a.png"><img class="img-fluid border" src="assets/images/sample_planets/img_y_a.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">Let's add another column, similar to the example considered. Visually it will look like this:</small></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_dt.png"><img class="img-fluid border" src="assets/images/sample_planets/img_dt.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">Now you can experiment with the last two columns.</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">To begin with, clear the "Water" column (You can also clear the entire table, details in the API)</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai clear_column '("Planets", "Water")'</code></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_w.png"><img class="img-fluid border" src="assets/images/sample_planets/img_w.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">Undefined or null values are uninformative, so we decide to completely remove the column from the Planet table</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai delete_column '("Planets", "Water")'</code></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">From the query, we see that the "Water" column has disappeared</small></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_w_n.png"><img class="img-fluid border" src="assets/images/sample_planets/img_w_n.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">Deleting columns is not a frequent activity, let's completely delete the row with the planet Uranus.</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">Below is the command and the result of the operation performed.</small></h6>
+                  <h6><code >dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai delete_table_entity '("Planets", "7")'</code></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_d_u.png"><img class="img-fluid border" src="assets/images/sample_planets/img_d_u.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">Similarly, you can delete data in a separate cell. Now let's try to clear the entire table and look at the result.</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai clear_table '("Planets")'</code></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">The request get_table_entityes_json '("Planets")' will return an empty array or a json object equal to "[ ]" </small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">The get_tables request shows us that the table has remained in the database.</small></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_d_t_e.png"><img class="img-fluid border" src="assets/images/sample_planets/img_d_t_e.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">In order to completely delete the table, we use the following query.</small></h6>
+                  <h6><code>dfx canister --network=ic call mxjrx-tiaaa-aaaah-aaoxq-cai delete_table '("Planets")'</code></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_z.png"><img class="img-fluid border" src="assets/images/sample_planets/img_z.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">Sevice info.</small></h6>
+                  <p><a class="popup-img" href="assets/images/sample_planets/img_s_d.png"><img class="img-fluid border" src="assets/images/sample_planets/img_s_d.png" alt=""></a></p>
+                  <h6 className="text-lg-center"><small className="text-muted">Next, we will clear the entire database of information. We see that the occupied memory has not decreased at least, but in fact it should remain as well. </small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">This behavior is due to the fact that the canister marked the occupied space, but the data was actually erased.</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">With the following entries, the size will not increase to the actual marked-up space.</small></h6>
+                  <h6 className="text-lg-center"><small className="text-muted">Only after overcoming it will it begin to grow and is displayed as increasing.</small></h6>
+              </div>
+          </section>
+
+          <hr class="divider">
+
+          <section id="idocs_integration">
+              <h3 id="idocs_integration_web">Integration</h3>
+              <h3 id="idocs_integration_mobile"></h3>
+              <h6> - To create an "agent" and an "actor" to interact with your database,
+                  it is recommended to familiarize yourself with
+                  <a href="https://internetcomputer.org/docs/current/developer-docs/build/frontend/webpack-config" target="_blank">link</a>
+                   and
+                  <a href="https://internetcomputer.org/docs/current/developer-docs/integrations/" target="_blank">link.</a>
+              </h6>
+
+              <h6>
+                  <p>
+                      - A large number of examples:
+                      <a href="https://github.com/dfinity/examples/tree/master/motoko" target="_blank">link.</a>
+
+                  </p>
+              </h6>
+
+              <h6>
+                  <p>
+                      - Interaction with the actor is also present in this project. (See the example above)
+                      <em>service-difibase/src/util/actors/ic_network</em>
+                      (Source code from the links at the very beginning.)
+                  </p>
+              </h6>
+
+
+              <h6>
+                  <p>
+                      It is recommended to use React-Native to develop and add "actors" to the mobile application.
+                      In this case, there will be no differences from the web application.
+                      It is also possible to add to an existing application written in native Android (Kotlin; Rust)
+                      But these are more special cases and there is no universal solution. You can use the developer forum to clarify
+                      <a href="https://forum.dfinity.org/" target="_blank">link,</a>
+                      or write to me at furysafik@gmail.com
+                  </p>
+              </h6>
+
+          </section>
+
+          <hr class="divider">
+
+          <section id="idocs_security">
+              <h3 id="idocs_security_databases">Security</h3>
+              <h6>
+                  <p>
+                      - At the moment there is no protection against loss of
+                      integrity of information in the database (changes (modification) of information by third parties).
+                  </p>
+                  <p>
+                      - There is no ready-made (developed) version of information encryption.
+                      You can encrypt the data and store the information in the database in encrypted form.
+                      A separate end-to-end encryption solution may be developed in future.
+                  </p>
+              </h6>
+
+          </section>
+
+          <hr class="divider">
+        <!-- Changelog
+		============================ -->
+        <section id="idocs_changelog">
+          <h2>Changelog</h2>
+            <h3 id="v0.0.2">Version 0.0.2 <small class="text-muted">(December, 2022)</small></h3>
+          <ul class="changelog">
+            <li><span class="badge badge-success">Added</span>Updated basic information</li>
+<!--            <li><span class="badge badge-danger">Fixed</span> Some minor bugs for browser compatibility</li>-->
+<!--			<li><span class="badge badge-danger">Fixed</span> Some minor bugs for responsive</li>-->
+<!--            <li><span class="badge badge-info">Updated</span> FontAwesome to Latest Version</li>-->
+<!--			<li><span class="badge badge-info">Updated</span> Bootstrap to Latest Version</li>-->
+<!--			<li><span class="badge badge-info">Updated</span> Improvements in CSS and JS</li>-->
+          </ul>
+		  <hr class="divider">
+          <h3 id="v0.0.1">Version 0.0.1<small class="text-muted">(2022)</small></h3>
+          <p>Initial Release</p>
+
+            <hr class="divider">
+            <h3>End.</h3>
+
+        </section>        
+        
+      </div>
+    </div>
+	
+  </div>
+  <!-- Content end --> 
+  
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+      <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
+        <li><a data-toggle="tooltip" href="https://github.com/fury02/Difibase" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+      </ul>
+       <p class="text-center">Copyright &copy; 2021-2023 <a href="https://7wwjw-5iaaa-aaaan-qbguq-cai.ic0.app/">Difibase</a>. All Rights Reserved.</p>
+<!--        <p class="text-center"><a class="popup-img" href="assets/images/logo_ic/ic-badge-powered-by_slim-transparent-white-text.svg"><img class="align-content-center" src="assets/images/logo_ic/ic-badge-powered-by_slim-transparent-dark-text.svg" alt=""></a></p>-->
+        <p class="text-center"><a class="popup-img" href="assets/images/logo_ic/ic-badge-powered-by_slim-transparent-white-text.svg"><img class="align-content-center" src="assets/images/logo_ic/ic-badge-powered-by_slim-transparent-white-text.svg" alt=""></a></p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

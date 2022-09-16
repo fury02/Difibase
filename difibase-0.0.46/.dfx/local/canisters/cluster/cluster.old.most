@@ -1,0 +1,27 @@
+// Version: 1.0.0
+type AssocList<K, V> = List<(K, V)>;
+type AssocList__1<K, V> = AssocList<K, V>;
+type Branch<K, V> = {left : Trie<K, V>; right : Trie<K, V>; size : Nat};
+type CurrentStatusInstance = {#abandon; #involved; #stopped; #unknown};
+type Hash = Nat32;
+type Instance =
+  {
+    description : Text;
+    instance_principal : Principal;
+    status : CurrentStatusInstance;
+    wasm : Wasm;
+    wasm_name : Text;
+    wasm_version : Nat
+  };
+type Instance__2 = Instance;
+type Key<K> = {hash : Hash; key : K};
+type Leaf<K, V> = {keyvals : AssocList__1<Key<K>, V>; size : Nat};
+type List<T> = ?(T, List<T>);
+type Trie<K, V> = {#branch : Branch<K, V>; #empty; #leaf : Leaf<K, V>};
+type Wasm = wasm_module__1;
+type wasm_module__1 = [Nat8];
+actor {
+  stable var instances_entries : [(Nat, Instance__2)];
+  stable var white_list :
+    {#branch : Branch<Principal, ()>; #empty; #leaf : Leaf<Principal, ()>}
+};

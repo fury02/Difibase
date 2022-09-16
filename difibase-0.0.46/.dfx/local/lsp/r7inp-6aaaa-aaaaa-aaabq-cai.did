@@ -1,0 +1,61 @@
+type Wasm = vec nat8;
+type Tokens = record {e8s: nat64;};
+type SubAccount = vec nat8;
+type PrincipalAccounting = 
+ record {
+   account_identifier: AccountIdentifier;
+   address: Hex;
+   "principal": principal;
+   principal_value: text;
+   subaccount: SubAccount;
+ };
+type Hex = text;
+type DBEASY = 
+ service {
+   accounting: (text) -> (PrincipalAccounting);
+   canister_accounting: () -> (CanisterAccounting);
+   clean_canister: (principal, Wasm) -> (bool);
+   clear_column: (text, text) -> (bool);
+   clear_table: (text) -> (bool);
+   cycles_available: () -> (nat);
+   cycles_balance: () -> (nat);
+   delete_canister: (principal) -> (bool);
+   delete_column: (text, text) -> (bool);
+   delete_table: (text) -> (bool);
+   delete_table_cell_value: (text, text, text) -> (bool);
+   delete_table_entity: (text, text) -> (bool);
+   find_table_cell: (text, text, text) -> (text);
+   find_table_value: (text, text) -> (text);
+   get_collection_table_entityes: (text) -> (vec text);
+   get_collection_table_keys: (text) -> (vec text);
+   get_collection_tables: () -> (vec text);
+   get_rts_memory_size: () -> (nat);
+   get_table_entityes: (text) -> (text);
+   get_table_keys: (text) -> (text);
+   get_tables: () -> (text);
+   get_version: () -> (text) query;
+   install_wasm: (principal, Wasm) -> (bool);
+   key_contains: (text, text) -> (bool);
+   minting_cycles: (nat) -> (Cycles);
+   reinstall_wasm: (principal, Wasm) -> (bool);
+   replace_table_value: (text, text, text, text) -> (opt text);
+   replace_value: (text, text, text, text) -> (opt text);
+   start_canister: (principal) -> (bool);
+   stop_canister: (principal) -> (bool);
+   table_contains: (text) -> (bool);
+   uninstall_wasm: (principal) -> (bool);
+   upgrade_wasm: (principal, Wasm) -> (bool);
+ };
+type Cycles = nat;
+type CanisterAccounting = 
+ record {
+   account_identifier: AccountIdentifier;
+   address: Hex;
+   cycles: opt nat;
+   "principal": principal;
+   principal_value: text;
+   subaccount: SubAccount;
+   tokens_balance: Tokens;
+ };
+type AccountIdentifier = vec nat8;
+service : () -> DBEASY

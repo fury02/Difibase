@@ -1,0 +1,40 @@
+// Version: 1.0.0
+type AssocList<K, V> = List<(K, V)>;
+type AssocList__1<K, V> = AssocList<K, V>;
+type Branch<K, V> = {left : Trie<K, V>; right : Trie<K, V>; size : Nat};
+type Cluster =
+  {
+    cluster_principal : Principal;
+    description : Text;
+    status : CurrentStatusCluster;
+    user_principal : Principal;
+    wasm : Wasm;
+    wasm_name : Text;
+    wasm_version : Nat
+  };
+type Cluster__2 = Cluster;
+type CurrentStatusCluster = {#abandon; #involved; #stopped; #unknown};
+type GUID = Text;
+type GUID__1 = GUID;
+type Hash = Nat32;
+type Key<K> = {hash : Hash; key : K};
+type Leaf<K, V> = {keyvals : AssocList__1<Key<K>, V>; size : Nat};
+type List<T> = ?(T, List<T>);
+type Trie<K, V> = {#branch : Branch<K, V>; #empty; #leaf : Leaf<K, V>};
+type UUID = [Nat8];
+type UUID__2 = UUID;
+type UserIdentifier =
+  {
+    description : Text;
+    guid : GUID__1;
+    user_principal : Principal;
+    uuid : UUID__2
+  };
+type UserIdentifier__3 = UserIdentifier;
+type Wasm = wasm_module__1;
+type wasm_module__1 = [Nat8];
+actor {
+  stable var users_clusters_entries : [(UserIdentifier__3, Cluster__2)];
+  stable var white_list :
+    {#branch : Branch<Principal, ()>; #empty; #leaf : Leaf<Principal, ()>}
+};

@@ -1,0 +1,62 @@
+{
+  "canisters": {
+    "dbs": {
+      "main": "src/dbs/service.mo",
+      "type": "motoko"
+    },
+    "cluster":{
+      "main": "src/dbs/hubs/cluster.mo",
+      "type": "motoko"
+    },
+    "admin":{
+      "main": "src/dbs/hubs/main/admin.mo",
+      "type": "motoko"
+    },
+    "wasm_storage":{
+      "main": "src/dbs/wasm/wasm-storage.mo",
+      "type": "motoko"
+    },
+    "support_cycles":{
+      "main": "src/dbs/funding/support-cycles/support-cycles.mo",
+      "type": "motoko"
+    },
+    "transfer_ledger":{
+      "main": "src/dbs/actor-self.mo",
+      "type": "motoko"
+    },
+    "ledger": {
+      "type": "custom",
+      "wasm": "src/dbs/local-ic/ledger_3f343ec_34e32a2/ledger.wasm",
+      "candid": "src/dbs/local-ic/ledger_3f343ec_34e32a2/ledger.private.did"
+    }
+  },
+  "defaults": {
+    "replica": {
+      "subnet_type": "system"
+    },
+    "build": {
+      "args": "",
+      "packtool": "vessel-linux64 sources"
+    }
+  },
+  "dfx": "0.12.1",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "ic_localhost": {
+    "local": {
+      "bind": "http://127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "ic_network": {
+    "ic": {
+      "bind": "https://boundary.ic0.app",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}

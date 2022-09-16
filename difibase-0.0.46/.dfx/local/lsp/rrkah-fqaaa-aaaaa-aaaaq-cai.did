@@ -1,0 +1,352 @@
+type definite_canister_settings = 
+ record {
+   compute_allocation: nat;
+   controllers: vec principal;
+   freezing_threshold: nat;
+   memory_allocation: nat;
+ };
+type Wasm__1 = vec nat8;
+type WasmDelivered = 
+ record {
+   name: text;
+   version: nat;
+   wasm: Wasm__1;
+ };
+type Wasm = vec nat8;
+type Trie = 
+ variant {
+   branch: Branch;
+   "empty";
+   leaf: Leaf;
+ };
+type TransferResultExpanded = 
+ record {
+   amount: Tokens;
+   created_at_time: TimeStamp;
+   transfer_result: TransferResult;
+ };
+type TransferResult = 
+ variant {
+   Err: TransferError;
+   Ok: BlockIndex;
+ };
+type TransferError = 
+ variant {
+   BadFee: record {expected_fee: Tokens;};
+   InsufficientFunds: record {balance: Tokens;};
+   TxCreatedInFuture;
+   TxDuplicate: record {duplicate_of: BlockIndex;};
+   TxTooOld: record {allowed_window_nanos: nat64;};
+ };
+type Transaction = 
+ record {
+   created_at_time: TimeStamp;
+   memo: Memo;
+   operation: opt Operation;
+ };
+type Tokens = record {e8s: nat64;};
+type TimeStamp = record {timestamp_nanos: nat64;};
+type SubAccount = vec nat8;
+type Set = 
+ variant {
+   branch: Branch;
+   "empty";
+   leaf: Leaf;
+ };
+type Result_4 = 
+ variant {
+   err: ClusterInstanceError;
+   ok: principal;
+ };
+type Result_3 = 
+ variant {
+   err: DescriptionError;
+   ok: principal;
+ };
+type Result_2 = 
+ variant {
+   err: DescriptionError;
+   ok: record {
+         principal;
+         text;
+       };
+ };
+type Result_1 = 
+ variant {
+   err: DescriptionError;
+   ok: Wasm;
+ };
+type Result = 
+ variant {
+   err: DescriptionError;
+   ok: WasmDelivered;
+ };
+type QueryBlocksResponse = 
+ record {
+   archived_blocks:
+    vec record {
+          callback: QueryArchiveFn;
+          length: nat64;
+          start: BlockIndex;
+        };
+   blocks: vec Block;
+   certificate: opt vec nat8;
+   chain_length: nat64;
+   first_block_index: BlockIndex;
+ };
+type QueryArchiveResult = 
+ variant {
+   Err: QueryArchiveError;
+   Ok: BlockRange;
+ };
+type QueryArchiveFn = func (GetBlocksArgs) -> (QueryArchiveResult) query;
+type QueryArchiveError = 
+ variant {
+   BadFirstBlockIndex:
+    record {
+      first_valid_index: BlockIndex;
+      requested_index: BlockIndex;
+    };
+   Other: record {
+            error_code: nat64;
+            error_message: text;
+          };
+ };
+type PrincipalAccounting = 
+ record {
+   account_identifier: AccountIdentifier;
+   address: Hex;
+   "principal": principal;
+   principal_value: text;
+   subaccount: SubAccount;
+ };
+type Operation = 
+ variant {
+   Burn: record {
+           amount: Tokens;
+           from: AccountIdentifier;
+         };
+   Mint: record {
+           amount: Tokens;
+           to: AccountIdentifier;
+         };
+   Transfer:
+    record {
+      amount: Tokens;
+      fee: Tokens;
+      from: AccountIdentifier;
+      to: AccountIdentifier;
+    };
+ };
+type Memo = nat64;
+type List = 
+ opt record {
+       record {
+         Key;
+         null;
+       };
+       List;
+     };
+type Leaf = 
+ record {
+   keyvals: AssocList;
+   size: nat;
+ };
+type Key = 
+ record {
+   hash: Hash;
+   key: principal;
+ };
+type InstanceInfo = 
+ record {
+   description: text;
+   instance_principal: principal;
+   number_key: nat;
+   status: CurrentStatusInstance;
+   wasm_name: text;
+   wasm_version: nat;
+ };
+type Instance = 
+ record {
+   description: text;
+   instance_principal: principal;
+   status: CurrentStatusInstance;
+   wasm: Wasm__1;
+   wasm_name: text;
+   wasm_version: nat;
+ };
+type Hex = text;
+type Hash = nat32;
+type GetBlocksArgs = 
+ record {
+   length: nat64;
+   start: BlockIndex;
+ };
+type DescriptionError = 
+ variant {
+   abort_canister_create;
+   abort_canister_deploy;
+   canister_create_error_not_enough_funds;
+   canister_install_wasm_error;
+   invalid_caller;
+   minting_cycles_error;
+   not_include_wasm;
+   reject_install_wasm;
+   unknown_error;
+   unreliable_operation;
+ };
+type Cycles = nat;
+type CurrentStatusInstance = 
+ variant {
+   abandon;
+   involved;
+   stopped;
+   unknown;
+ };
+type CurrentStatusCluster = 
+ variant {
+   abandon;
+   involved;
+   stopped;
+   unknown;
+ };
+type ClusterInstanceError = 
+ variant {
+   abort_clean;
+   abort_clean_cluster;
+   abort_clean_instance;
+   abort_delete;
+   abort_delete_cluster;
+   abort_delete_instance;
+   abort_replace_value;
+   abort_start;
+   abort_start_cluster;
+   abort_start_instance;
+   abort_stop;
+   abort_stop_cluster;
+   abort_stop_instance;
+   invalid_caller;
+   unknown_error;
+ };
+type ClusterInfo = 
+ record {
+   cluster_principal: principal;
+   description: text;
+   status: CurrentStatusCluster;
+   user_principal: principal;
+   wasm_name: text;
+   wasm_version: nat;
+ };
+type Cluster = 
+ record {
+   cluster_principal: principal;
+   description: text;
+   status: CurrentStatusCluster;
+   user_principal: principal;
+   wasm: Wasm__1;
+   wasm_name: text;
+   wasm_version: nat;
+ };
+type CanisterStatus = 
+ record {
+   cycles: nat;
+   freezing_threshold: nat;
+   memory_size: nat;
+   module_hash: opt blob;
+   settings: definite_canister_settings;
+   status: variant {
+             running;
+             stopped;
+             stopping;
+           };
+ };
+type CanisterAccounting = 
+ record {
+   account_identifier: AccountIdentifier;
+   address: Hex;
+   cycles: opt nat;
+   "principal": principal;
+   principal_value: text;
+   subaccount: SubAccount;
+   tokens_balance: Tokens;
+ };
+type Branch = 
+ record {
+   left: Trie;
+   right: Trie;
+   size: nat;
+ };
+type BlockRange = record {blocks: vec Block;};
+type BlockParticipants = 
+ record {
+   amount: nat64;
+   from: AccountIdentifier;
+   to: AccountIdentifier;
+   verify: bool;
+ };
+type BlockIndex = nat64;
+type Block = 
+ record {
+   parent_hash: opt vec nat8;
+   timestamp: TimeStamp;
+   transaction: Transaction;
+ };
+type AssocList = 
+ opt record {
+       record {
+         Key;
+         null;
+       };
+       List;
+     };
+type Admin = 
+ service {
+   accounting: (text) -> (PrincipalAccounting);
+   add_white_list: (principal) -> (Set);
+   block_participants: (nat) -> (BlockParticipants);
+   caller: () -> (principal);
+   canister_accounting: () -> (CanisterAccounting);
+   check_participants: (nat, principal, principal) -> (BlockParticipants);
+   cluster_clean_instance: (nat, text) -> (Result_4);
+   cluster_delete_instance: (nat, text) -> (Result_4);
+   cluster_deploy_instance: (principal, text, text, text, nat) -> (Result_2);
+   cluster_deploy_instance_default: (principal, text, text) -> (Result_2);
+   cluster_reade_instances: (text) -> (vec Instance);
+   cluster_reade_instances_info: (text) -> (vec InstanceInfo);
+   cluster_start: (principal, text) -> (Result_4);
+   cluster_start_instance: (nat, text) -> (Result_4);
+   cluster_stop: (principal, text) -> (Result_4);
+   cluster_stop_instance: (nat, text) -> (Result_4);
+   clusters: () -> (vec ClusterInfo);
+   contains_white_list: (principal) -> (bool);
+   count_clusters: () -> (nat);
+   create_canister: (principal) -> (Result_3);
+   credit: () -> ();
+   cycles_available: () -> (nat) query;
+   cycles_balance: () -> (nat) query;
+   delete_canister: (principal) -> (bool);
+   delete_white_list: (principal) -> (Set);
+   deploy_cluster: (nat, principal, principal, text, text, nat) -> (Result_2);
+   deploy_cluster_default: (nat, principal, principal, text) -> (Result_2);
+   deploy_cluster_default_internal: (principal, text) -> (opt principal);
+   deploy_singleton_instance: (Wasm, principal) -> (Result_2);
+   get_canister_status: (principal) -> (CanisterStatus);
+   get_cluster: (text, text) -> (Cluster);
+   get_rts_memory_size: () -> (nat);
+   get_version: () -> (text) query;
+   get_wasm: (text, nat) -> (Result_1);
+   get_wasm_default: () -> (Result);
+   install_wasm: (principal, Wasm) -> (bool);
+   minting_cycles: (nat) -> (Cycles);
+   principal_to_account: (principal) -> (vec nat8);
+   query_bloks: (nat, nat) -> (QueryBlocksResponse);
+   reinstall_wasm: (principal, Wasm) -> (bool);
+   start_canister: (principal) -> (bool);
+   stop_canister: (principal) -> (bool);
+   transfer_icp: (Hex, nat) -> (TransferResultExpanded);
+   uninstall_wasm: (principal) -> (bool);
+   upgrade_wasm: (principal, Wasm) -> (bool);
+   user_clusters: (principal) -> (vec ClusterInfo);
+ };
+type AccountIdentifier = vec nat8;
+service : () -> Admin
